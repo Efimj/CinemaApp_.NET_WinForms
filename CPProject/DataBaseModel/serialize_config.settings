@@ -1,0 +1,24 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="CPProject.DataBaseModel" GeneratedClassName="serialize_config">
+  <Profiles />
+  <Settings>
+    <Setting Name="SerializeUserCollectionPath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">./DBSerializedCollection/users</Value>
+    </Setting>
+    <Setting Name="SerializeBlockedUserCollectionPath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">./DBSerializedCollection/blocked_users</Value>
+    </Setting>
+    <Setting Name="SerializeFilmCollectionPath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">./DBSerializedCollection/films</Value>
+    </Setting>
+    <Setting Name="SerializeSessionCollectionPath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">./DBSerializedCollection/sessions</Value>
+    </Setting>
+    <Setting Name="SerializeTicketCollectionPath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">./DBSerializedCollection/tickets</Value>
+    </Setting>
+    <Setting Name="SerializeReviewCollectionPath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">./DBSerializedCollection/reviews</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

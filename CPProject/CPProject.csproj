@@ -1,0 +1,74 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="images\star_filled.png" />
+    <None Remove="images\star_outfilled.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="images\star_filled.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="images\star_outfilled.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MongoDB.Bson" Version="2.19.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="DataBaseModel\serialize_config.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>serialize_config.settings</DependentUpon>
+    </Compile>
+    <Compile Update="imageHandler\image_path.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>image_path.settings</DependentUpon>
+    </Compile>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Update="User\handlers\user_config.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>user_config.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="DataBaseModel\serialize_config.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>serialize_config.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="imageHandler\image_path.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>image_path.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="User\handlers\user_config.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>user_config.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+</Project>
