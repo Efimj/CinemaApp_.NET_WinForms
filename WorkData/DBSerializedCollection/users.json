@@ -1,0 +1,51 @@
+[
+  {
+    "Id": "644ce110953738681db45395",
+    "Login": "MovieLover",
+    "Password": "Cinema123",
+    "BirthdayDate": "1988-12-28T00:00:00",
+    "UserType": 0
+  },
+  {
+    "Id": "644ce11a953738681db45396",
+    "Login": "FilmFanatic",
+    "Password": "MovieTime22",
+    "BirthdayDate": "2011-04-29T00:00:00+03:00",
+    "UserType": 0
+  },
+  {
+    "Id": "644ce130953738681db45397",
+    "Login": "BoxOfficeBoss",
+    "Password": "Popcorn44",
+    "BirthdayDate": "2000-02-02T00:00:00",
+    "UserType": 0
+  },
+  {
+    "Id": "644ce144953738681db45398",
+    "Login": "SilverScreenDreamer",
+    "Password": "FilmFestival99",
+    "BirthdayDate": "2010-09-01T00:00:00",
+    "UserType": 0
+  },
+  {
+    "Id": "644ce153953738681db45399",
+    "Login": "ReelEnthusiast",
+    "Password": "MovieMagic77",
+    "BirthdayDate": "2010-10-01T00:00:00",
+    "UserType": 0
+  },
+  {
+    "Id": "644ce187953738681db4539a",
+    "Login": "mainadmin",
+    "Password": "mainadmin1",
+    "BirthdayDate": "1999-07-23T00:00:00",
+    "UserType": 1
+  },
+  {
+    "Id": "644ce19b953738681db4539b",
+    "Login": "EfimFilms",
+    "Password": "EfimFilms1",
+    "BirthdayDate": "2011-04-29T00:00:00+03:00",
+    "UserType": 0
+  }
+]
