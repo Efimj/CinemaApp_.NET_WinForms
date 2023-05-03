@@ -1,4 +1,5 @@
 ﻿using CPProject.components.ui;
+using CPProject.controls.Pages;
 using CPProject.Controls.Pages;
 using CPProject.User;
 
@@ -103,6 +104,7 @@ namespace CPProject.Controls.NavigationBars
         {
             setButtonActive((RoundedButton)sender, TicketImageActive, TicketImageDefault);
             pagePanel.Controls.Clear();
+            pagePanel.Controls.Add(new MyTicketPage());
         }
 
         private void roundedButton3_Click(object sender, EventArgs e)

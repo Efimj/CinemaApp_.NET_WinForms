@@ -1,4 +1,5 @@
 ﻿using CPProject.components.ui;
+using CPProject.controls.Pages;
 using CPProject.Controls.Pages;
 using CPProject.User;
 
@@ -89,6 +90,7 @@ namespace CPProject.Controls
         {
             setButtonActive((RoundedButton)sender, TicketImageActive, TicketImageDefault);
             pagePanel.Controls.Clear();
+            pagePanel.Controls.Add(new MyTicketPage());
 
         }
 

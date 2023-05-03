@@ -34,6 +34,7 @@
             roundedButton5 = new components.ui.RoundedButton();
             roundedButton4 = new components.ui.RoundedButton();
             tableLayoutPanel2 = new TableLayoutPanel();
+            roundedButtonFindTicket = new components.ui.RoundedButton();
             roundedButtonFutureSessions = new components.ui.RoundedButton();
             roundedButtonFilms = new components.ui.RoundedButton();
             label2 = new Label();
@@ -158,6 +159,7 @@
             tableLayoutPanel2.AutoSize = true;
             tableLayoutPanel2.ColumnCount = 1;
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel2.Controls.Add(roundedButtonFindTicket, 0, 4);
             tableLayoutPanel2.Controls.Add(roundedButtonFutureSessions, 0, 2);
             tableLayoutPanel2.Controls.Add(roundedButtonFilms, 0, 0);
             tableLayoutPanel2.Dock = DockStyle.Top;
@@ -165,22 +167,45 @@
             tableLayoutPanel2.Margin = new Padding(0);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.Padding = new Padding(5, 15, 5, 0);
-            tableLayoutPanel2.RowCount = 4;
+            tableLayoutPanel2.RowCount = 6;
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 40F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 5F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 40F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 5F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 40F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel2.Size = new Size(193, 100);
+            tableLayoutPanel2.Size = new Size(193, 145);
             tableLayoutPanel2.TabIndex = 11;
+            // 
+            // roundedButtonFindTicket
+            // 
+            roundedButtonFindTicket.Autofocus = false;
+            roundedButtonFindTicket.BackColor = Color.White;
+            roundedButtonFindTicket.BackgroundColor = Color.White;
+            roundedButtonFindTicket.BorderColor = Color.PaleVioletRed;
+            roundedButtonFindTicket.BorderRadius = 5;
+            roundedButtonFindTicket.BorderSize = 0;
+            roundedButtonFindTicket.Dock = DockStyle.Fill;
+            roundedButtonFindTicket.FlatAppearance.BorderSize = 0;
+            roundedButtonFindTicket.FlatStyle = FlatStyle.Flat;
+            roundedButtonFindTicket.FocusBorderColor = Color.Gray;
+            roundedButtonFindTicket.FocusBorderSize = 2;
+            roundedButtonFindTicket.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            roundedButtonFindTicket.ForeColor = Color.Black;
+            roundedButtonFindTicket.Image = Properties.Resources.ticket_black;
+            roundedButtonFindTicket.ImageAlign = ContentAlignment.MiddleLeft;
+            roundedButtonFindTicket.Location = new Point(5, 105);
+            roundedButtonFindTicket.Margin = new Padding(0);
+            roundedButtonFindTicket.Name = "roundedButtonFindTicket";
+            roundedButtonFindTicket.Padding = new Padding(20, 0, 0, 0);
+            roundedButtonFindTicket.Size = new Size(183, 40);
+            roundedButtonFindTicket.TabIndex = 14;
+            roundedButtonFindTicket.Text = "FindTicket";
+            roundedButtonFindTicket.TextAlign = ContentAlignment.MiddleLeft;
+            roundedButtonFindTicket.TextColor = Color.Black;
+            roundedButtonFindTicket.TextImageRelation = TextImageRelation.ImageBeforeText;
+            roundedButtonFindTicket.UseVisualStyleBackColor = false;
+            roundedButtonFindTicket.Click += roundedButton1_Click_1;
             // 
             // roundedButtonFutureSessions
             // 
@@ -284,5 +309,6 @@
         private components.ui.RoundedButton roundedButton5;
         private components.ui.RoundedButton roundedButton4;
         private Label label1;
+        private components.ui.RoundedButton roundedButtonFindTicket;
     }
 }

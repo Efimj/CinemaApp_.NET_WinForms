@@ -360,7 +360,7 @@
             roundedButtonMySession.BackgroundColor = Color.White;
             roundedButtonMySession.BorderColor = Color.FromArgb(224, 224, 224);
             roundedButtonMySession.BorderRadius = 5;
-            roundedButtonMySession.BorderSize = 1;
+            roundedButtonMySession.BorderSize = 0;
             roundedButtonMySession.Dock = DockStyle.Fill;
             roundedButtonMySession.FlatAppearance.BorderSize = 0;
             roundedButtonMySession.FlatStyle = FlatStyle.Flat;
@@ -385,7 +385,7 @@
             roundedButtonFutureSession.BackgroundColor = Color.White;
             roundedButtonFutureSession.BorderColor = Color.FromArgb(224, 224, 224);
             roundedButtonFutureSession.BorderRadius = 5;
-            roundedButtonFutureSession.BorderSize = 1;
+            roundedButtonFutureSession.BorderSize = 0;
             roundedButtonFutureSession.Dock = DockStyle.Fill;
             roundedButtonFutureSession.FlatAppearance.BorderSize = 0;
             roundedButtonFutureSession.FlatStyle = FlatStyle.Flat;
@@ -411,6 +411,7 @@
             roundedButtonCreateSession.BorderColor = Color.FromArgb(224, 224, 224);
             roundedButtonCreateSession.BorderRadius = 7;
             roundedButtonCreateSession.BorderSize = 1;
+            roundedButtonCreateSession.Dock = DockStyle.Fill;
             roundedButtonCreateSession.FlatAppearance.BorderSize = 0;
             roundedButtonCreateSession.FlatStyle = FlatStyle.Flat;
             roundedButtonCreateSession.FocusBorderColor = Color.Gray;
@@ -420,7 +421,7 @@
             roundedButtonCreateSession.Location = new Point(472, 0);
             roundedButtonCreateSession.Margin = new Padding(2, 0, 2, 0);
             roundedButtonCreateSession.Name = "roundedButtonCreateSession";
-            roundedButtonCreateSession.Size = new Size(146, 38);
+            roundedButtonCreateSession.Size = new Size(146, 40);
             roundedButtonCreateSession.TabIndex = 12;
             roundedButtonCreateSession.Text = "Create session";
             roundedButtonCreateSession.TextColor = Color.Black;
@@ -434,7 +435,7 @@
             roundedButtonSessionArchive.BackgroundColor = Color.White;
             roundedButtonSessionArchive.BorderColor = Color.FromArgb(224, 224, 224);
             roundedButtonSessionArchive.BorderRadius = 5;
-            roundedButtonSessionArchive.BorderSize = 1;
+            roundedButtonSessionArchive.BorderSize = 0;
             roundedButtonSessionArchive.Dock = DockStyle.Fill;
             roundedButtonSessionArchive.FlatAppearance.BorderSize = 0;
             roundedButtonSessionArchive.FlatStyle = FlatStyle.Flat;

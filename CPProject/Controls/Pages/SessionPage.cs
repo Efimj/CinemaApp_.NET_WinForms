@@ -7,15 +7,14 @@ using System.Diagnostics;
 
 namespace CPProject.Controls.Pages
 {
-    enum SessionsDGVMode
-    {
-        Future,
-        Archive,
-        My,
-    }
-
     public partial class SessionPage : UserControl
     {
+        private enum SessionsDGVMode
+        {
+            Future,
+            Archive,
+            My,
+        }
         private RoundedButton? lastButtonActivated;
         private SessionsDGVMode sessionsDGVMode;
         private static CinemaDataBase? DBInstance = null;
@@ -44,13 +43,13 @@ namespace CPProject.Controls.Pages
             }
         }
 
-        private SessionsDGVMode SessionsDGVMode { get => sessionsDGVMode; set { sessionsDGVMode = value; DGVModeChange(); } }
+        private SessionsDGVMode CurrentSessionsDGVMode { get => sessionsDGVMode; set { sessionsDGVMode = value; DGVModeChange(); } }
         public SessionPage()
         {
             InitializeComponent();
             Dock = DockStyle.Fill;
             SelectedRowIndex = null;
-            SessionsDGVMode = SessionsDGVMode.Future;
+            CurrentSessionsDGVMode = SessionsDGVMode.Future;
             setButtonActive(roundedButtonFutureSession);
             DGVInitialize();
             ButtonShowerInitialize();
@@ -71,7 +70,7 @@ namespace CPProject.Controls.Pages
         private int GetRowCount()
         {
             int? count = 0;
-            switch (SessionsDGVMode)
+            switch (CurrentSessionsDGVMode)
             {
                 case SessionsDGVMode.Future:
                     count = GetFutureSessionCount();
@@ -245,21 +244,21 @@ namespace CPProject.Controls.Pages
         {
             setButtonActive((RoundedButton)sender);
             SelectedRowIndex = null;
-            SessionsDGVMode = SessionsDGVMode.Future;
+            CurrentSessionsDGVMode = SessionsDGVMode.Future;
         }
 
         private void roundedButton2_Click(object sender, EventArgs e)
         {
             setButtonActive((RoundedButton)sender);
             SelectedRowIndex = null;
-            SessionsDGVMode = SessionsDGVMode.Archive;
+            CurrentSessionsDGVMode = SessionsDGVMode.Archive;
         }
 
         private void roundedButton1_Click_1(object sender, EventArgs e)
         {
             setButtonActive((RoundedButton)sender);
             SelectedRowIndex = null;
-            SessionsDGVMode = SessionsDGVMode.My;
+            CurrentSessionsDGVMode = SessionsDGVMode.My;
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -371,7 +370,7 @@ namespace CPProject.Controls.Pages
                 return null;
 
             int count = 0;
-            switch (SessionsDGVMode)
+            switch (CurrentSessionsDGVMode)
             {
                 case SessionsDGVMode.My:
                     if (AccountHandler.Instance.User == null)
@@ -419,7 +418,7 @@ namespace CPProject.Controls.Pages
         private Session? GetSession(int rowIndex)
         {
             Session? session;
-            switch (SessionsDGVMode)
+            switch (CurrentSessionsDGVMode)
             {
                 case SessionsDGVMode.Future:
                     session = GetFutureSession(rowIndex);

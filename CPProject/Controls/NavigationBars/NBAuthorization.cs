@@ -1,4 +1,5 @@
 ﻿using CPProject.components.ui;
+using CPProject.controls.Pages;
 using CPProject.Controls;
 using CPProject.Controls.Pages;
 using CPProject.Forms;
@@ -74,6 +75,13 @@ namespace CPProject
             setButtonActive(roundedButtonFutureSessions, SessionImageActive, SessionImageDefault);
             pagePanel.Controls.Clear();
             pagePanel.Controls.Add(new SessionPage());
+        }
+
+        private void roundedButton1_Click_1(object sender, EventArgs e)
+        {
+            setButtonActive(roundedButtonFindTicket, TicketImageActive, TicketImageDefault);
+            pagePanel.Controls.Clear();
+            pagePanel.Controls.Add(new MyTicketPage());
         }
     }
 }
