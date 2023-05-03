@@ -1,9 +1,10 @@
 ﻿using CPProject.DataBaseModel;
 using CPProject.DataBaseModel.entities;
+using CPProject.DataBaseModel.types;
 using CPProject.handlers;
 using CPProject.helpers;
 using CPProject.User;
-using System.ComponentModel;
+using System.Diagnostics;
 
 namespace CPProject
 {
@@ -33,19 +34,21 @@ namespace CPProject
         {
             if (user == null)
                 return;
-            DBhelpers dBhelpers = new DBhelpers();
+            AccountHelpers dBhelpers = new AccountHelpers();
             bool isUserBlocked = dBhelpers.CheckIsUserBlocked(user.Id);
             int countUnblockedUser = dBhelpers.UnblockUserByTime();
             bool isUserBlockedNow = dBhelpers.CheckIsUserBlocked(user.Id);
             if (isUserBlocked && !isUserBlockedNow)
-                MessageBox.Show("You have been unblicked!", "Account information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("You have been unblocked!", "Account information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
             {
                 BlockedUser? blockedUser = CinemaDataBase.Instance.BlockedUserCollection.Find(item => item.UserId == user.Id);
                 if (blockedUser == null)
                     return;
-                DateTime endingBlockDate = blockedUser.AppointmentDate.AddMinutes((int)blockedUser.BlockDuration);
-                MessageBox.Show($"You are blocked!\nReason: {blockedUser.BlockReason}\nEnding: {endingBlockDate}", "Account information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                int blockedMinutes = (int)(BlockDurationType)Enum.GetValues(typeof(BlockDurationType)).GetValue((int)blockedUser.BlockDuration);
+                Debug.WriteLine(blockedMinutes);
+                DateTime endingBlockDate = blockedUser.AppointmentDate.AddMinutes(blockedMinutes);
+                MessageBox.Show($"You are blocked!\n\nReason: {blockedUser.BlockReason}\nEnding: {endingBlockDate}\n\n Your reviews will be hidden for the duration of the ban/", "Account information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

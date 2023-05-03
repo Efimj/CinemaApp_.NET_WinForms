@@ -33,6 +33,7 @@
             roundedPanel6 = new ui.RoundedPanel();
             comboBoxFilterReview = new ui.CustomComboBox();
             label11 = new System.Windows.Forms.Label();
+            labelInformation = new System.Windows.Forms.Label();
             roundedPanel1 = new ui.RoundedPanel();
             panel3 = new Panel();
             flowLayoutPanelReviews = new FlowLayoutPanel();
@@ -46,11 +47,13 @@
             // 
             // tableLayoutPanel9
             // 
-            tableLayoutPanel9.ColumnCount = 2;
+            tableLayoutPanel9.ColumnCount = 3;
             tableLayoutPanel9.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 95F));
             tableLayoutPanel9.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel9.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 246F));
             tableLayoutPanel9.Controls.Add(roundedPanel4, 1, 0);
             tableLayoutPanel9.Controls.Add(label11, 0, 0);
+            tableLayoutPanel9.Controls.Add(labelInformation, 2, 0);
             tableLayoutPanel9.Dock = DockStyle.Fill;
             tableLayoutPanel9.Location = new Point(0, 0);
             tableLayoutPanel9.Margin = new Padding(0);
@@ -136,6 +139,18 @@
             label11.TabIndex = 1;
             label11.Text = "Reviews";
             label11.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // labelInformation
+            // 
+            labelInformation.Dock = DockStyle.Fill;
+            labelInformation.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            labelInformation.ForeColor = Color.IndianRed;
+            labelInformation.Location = new Point(574, 10);
+            labelInformation.Margin = new Padding(0);
+            labelInformation.Name = "labelInformation";
+            labelInformation.Size = new Size(246, 35);
+            labelInformation.TabIndex = 4;
+            labelInformation.Text = "Your comments are not visible because you are blocked.";
             // 
             // roundedPanel1
             // 
@@ -230,5 +245,6 @@
         private Panel panel3;
         private ReviewCollection.CustomerReview customerReview;
         private FlowLayoutPanel flowLayoutPanelReviews;
+        private System.Windows.Forms.Label labelInformation;
     }
 }

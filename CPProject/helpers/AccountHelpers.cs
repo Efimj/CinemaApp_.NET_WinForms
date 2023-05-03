@@ -1,15 +1,9 @@
 ﻿using CPProject.DataBaseModel;
 using CPProject.DataBaseModel.types;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CPProject.helpers
 {
-    public class DBhelpers
+    public class AccountHelpers
     {
         private static CinemaDataBase? DBInstance = null;
         private static CinemaDataBase DataBase
@@ -32,22 +26,27 @@ namespace CPProject.helpers
         public int UnblockUserByTime()
         {
             int countUnblockedUser = 0;
-            int countBlockedUser = DataBase.BlockedUserCollection.Count;
-            for (int i = 0; i< countBlockedUser; i++)
+            for (int i = 0; i < DataBase.BlockedUserCollection.Count; i++)
             {
                 DateTime AppointmentDate = DataBase.BlockedUserCollection[i].AppointmentDate;
-                int minutesDuration = (int)DataBase.BlockedUserCollection[i].BlockDuration;
-                Debug.WriteLine(DataBase.BlockedUserCollection[i].BlockDuration.ToString());
+                int minutesDuration = (int)(BlockDurationType)Enum.GetValues(typeof(BlockDurationType)).GetValue(((int)DataBase.BlockedUserCollection[i].BlockDuration));
                 if (minutesDuration < 1)
                     continue;
-                if(AppointmentDate.AddMinutes(minutesDuration) < DateTime.Now)
+                if (AppointmentDate.AddMinutes(minutesDuration) < DateTime.Now)
                 {
-                    DataBase.BlockedUserCollection.RemoveAt(i);
+                    DataBase.BlockedUserCollection.Remove(DataBase.BlockedUserCollection[i].Id);
                     countUnblockedUser++;
                     i--;
                 }
             }
             return countUnblockedUser;
         }
+
+        public bool UpdateBlockedUserAndCheckIsUnblock(string userId)
+        {
+            this.UnblockUserByTime();
+            return CheckIsUserBlocked(userId);
+        }
+
     }
 }

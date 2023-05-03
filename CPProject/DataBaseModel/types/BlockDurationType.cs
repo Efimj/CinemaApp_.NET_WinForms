@@ -1,26 +1,46 @@
 ﻿using System.ComponentModel;
+using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace CPProject.DataBaseModel.types
 {
+    [JsonConverter(typeof(JsonStringEnumConverter))]
     public enum BlockDurationType
     {
+        [EnumMember(Value = "-1")]
         [Description("Infinite")]
         Infinite = -1,
+
+        [EnumMember(Value = "15")]
         [Description("Fifteen minutes")]
-        FifteenMinutes = 900,
+        FifteenMinutes = 15,
+
+        [EnumMember(Value = "30")]
         [Description("Thirty minutes")]
-        ThirtyMinutes = 1800,
+        ThirtyMinutes = 30,
+
+        [EnumMember(Value = "60")]
         [Description("One hour")]
-        OneHour = 3600,
+        OneHour = 60,
+
+        [EnumMember(Value = "240")]
         [Description("Four hours")]
-        FourHours = 14400,
+        FourHours = 240,
+
+        [EnumMember(Value = "1440")]
         [Description("One day")]
-        OneDay = 86400,
+        OneDay = 1440,
+
+        [EnumMember(Value = "2880")]
         [Description("Two days")]
-        TwoDays = 172800,
+        TwoDays = 2880,
+
+        [EnumMember(Value = "10080")]
         [Description("One week")]
-        OneWeek = 604800,
+        OneWeek = 10080,
+
+        [EnumMember(Value = "20160")]
         [Description("Two weeks")]
-        TwoWeeks = 1209600
+        TwoWeeks = 20160,
     }
 }

@@ -66,7 +66,7 @@ namespace CPProject.DataBaseModel.collections
 
         public bool Remove(string blockedId)
         {
-            if (base.RemoveAll(item => item.UserId == blockedId) > 0)
+            if (base.RemoveAll(item => item.Id == blockedId) > 0)
             {
                 return SerialiazeToJSON(serialize_config.Default.SerializeBlockedUserCollectionPath);
             }

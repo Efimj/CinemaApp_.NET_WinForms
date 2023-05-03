@@ -1,6 +1,5 @@
 ﻿using CPProject.DataBaseModel.types;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Reflection;
 
 namespace CPProject.Forms
@@ -20,6 +19,7 @@ namespace CPProject.Forms
         public DialogUserBan()
         {
             InitializeComponent();
+            this.TopMost = true;
             InitializeComboBoxBlockDuration();
             InitializeComboBoxBlockReason();
             AppointmentDate = DateTime.Now;
@@ -39,7 +39,6 @@ namespace CPProject.Forms
                 var description = descriptionAttribute?.Description ?? value.ToString();
                 customComboBoxBlockDuration.Items.Add(new { description, Value = value });
             }
-            //customComboBoxBlockDuration.DataSource = Enum.GetValues(typeof(BlockDurationType));
             customComboBoxBlockDuration.DisplayMember = "Description";
             customComboBoxBlockDuration.SelectedIndex = 3;
         }

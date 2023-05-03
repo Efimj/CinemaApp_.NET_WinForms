@@ -2,6 +2,7 @@
 using CPProject.DataBaseModel.entities;
 using CPProject.DataBaseModel.types;
 using CPProject.Forms;
+using CPProject.helpers;
 using CPProject.User;
 using CPProject.User.helpers;
 using CPProject.User.types;
@@ -218,8 +219,6 @@ namespace CPProject.components
 
         private void ReviewRemoveFromFlowLayoutPanel(Review review)
         {
-            //if (Reviews != null)
-            //    Reviews.Remove(review);
             for (int i = 0; i < flowLayoutPanelReviews.Controls.Count; i++)
             {
                 if (((PreviewReview)flowLayoutPanelReviews.Controls[i]).Review.Id == review.Id)
@@ -232,14 +231,11 @@ namespace CPProject.components
 
         private void ReviewRemoveFromFlowLayoutPanel(DataBaseModel.entities.User user)
         {
-            //if (Reviews != null)
-            //    Reviews.RemoveAll(item => item.UserId == user.Id);
             for (int i = 0; i < flowLayoutPanelReviews.Controls.Count; i++)
             {
                 if (((PreviewReview)flowLayoutPanelReviews.Controls[i]).User.Id == user.Id)
                 {
                     flowLayoutPanelReviews.Controls.Remove(flowLayoutPanelReviews.Controls[i]);
-
                     i--;
                 }
             }
@@ -326,6 +322,22 @@ namespace CPProject.components
             SetUserReview();
             InitializeUserReview();
             InitializeComboBoxFilterReview();
+            CheckUserBlock();
+        }
+
+        private void CheckUserBlock()
+        {
+            if (AccountHandler.Instance.User == null)
+                return;
+            if (new AccountHelpers().UpdateBlockedUserAndCheckIsUnblock(AccountHandler.Instance.User.Id))
+            {
+                labelInformation.Text = "Your comments are not visible because you are blocked.";
+                labelInformation.Visible = true;
+            }
+            else
+            {
+                labelInformation.Visible = false;
+            }
         }
 
         private void ClearReviews()
