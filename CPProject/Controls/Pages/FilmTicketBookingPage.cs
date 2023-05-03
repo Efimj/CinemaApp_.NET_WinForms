@@ -9,12 +9,12 @@ namespace CPProject.Controls.Pages
 {
     public partial class FilmTicketBookingPage : UserControl
     {
-        private Film? film;
+        private Film film;
         private Session? session;
         private static CinemaDataBase? DBInstance = null;
         private IEnumerable<Session>? sessions;
         private readonly string DateTimeStringFormat = "dd.MM.yyyy HH:mm";
-        private Film? Film { get => film; set { film = value; OnFilmChange(Film); } }
+        private Film Film { get => film; set { film = value; OnFilmChange(Film); } }
         private Session? Session { get => session; set { session = value; OnSessionChange(Session); } }
         private IEnumerable<Session>? Sessions { get => sessions; set => sessions = value; }
         private static CinemaDataBase DataBase
@@ -34,12 +34,26 @@ namespace CPProject.Controls.Pages
             InitializeComponent();
             this.film = film;
             this.session = session;
+
+        }
+
+        private void ChechAgeRating()
+        {
+            int currentMinimumAge = (int)(AgeRating)Enum.GetValues(typeof(AgeRating)).GetValue(((int)Film.AgeRating));
+            if (AccountHandler.Instance.User == null)
+                return;
+            if (AccountHandler.Instance.User.BirthdayDate > DateTime.Now.AddYears(-currentMinimumAge))
+            {
+                MessageBox.Show($"You do not meet the age limit.\nCurrent age rrating: {(AgeRating)Enum.GetValues(typeof(AgeRating)).GetValue((int)Film.AgeRating)}", "Ticket Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                goBack();
+            }
         }
 
         private void FilmTicketBookingPage_Load(object sender, EventArgs e)
         {
             Session = session;
             Film = film;
+            ChechAgeRating();
         }
 
         private void OnSessionChange(Session session)
@@ -99,9 +113,13 @@ namespace CPProject.Controls.Pages
 
         private void OnFilmChange(Film film)
         {
-            customComboBoxLocation.Items.Clear();
-            customComboBoxTime.Items.Clear();
-            customComboBoxSeat.Items.Clear();
+            try
+            {
+                customComboBoxLocation.Items.Clear();
+                customComboBoxTime.Items.Clear();
+                customComboBoxSeat.Items.Clear();
+            }
+            catch (Exception ex) { Debug.WriteLine(ex); }
 
             labelFilmTitle.Text = film.Title;
             if (Session != null)

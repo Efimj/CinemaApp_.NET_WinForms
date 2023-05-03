@@ -119,7 +119,7 @@ namespace CPProject.Controls.Pages
         {
             labelTitle.Text = film.Title;
             labelGanre.Text = film.Genre.ToString();
-            labelAge.Text = film.AgeRating.ToString();
+            labelAge.Text = $"{(AgeRating)Enum.GetValues(typeof(AgeRating)).GetValue((int)film.AgeRating)}";
             labelRelease.Text = film.ReleaseDate.ToString("dd MMMM yyyy");
             labelDescription.Text = film.Description;
         }

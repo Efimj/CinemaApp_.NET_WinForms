@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CPProject", ".\CPProject\CPProject.csproj", "{AD425AAA-6777-42B4-84EC-EF622C700A63}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CPProject", "CPProject\CPProject.csproj", "{AD425AAA-6777-42B4-84EC-EF622C700A63}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Элементы решения", "Элементы решения", "{222F6071-34F6-46A9-B12E-1606D614E6B1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", ".\Tests\Tests.csproj", "{71B720E1-24CC-47BF-9AA0-38FBBA9C7867}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests", "Tests\Tests.csproj", "{71B720E1-24CC-47BF-9AA0-38FBBA9C7867}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
