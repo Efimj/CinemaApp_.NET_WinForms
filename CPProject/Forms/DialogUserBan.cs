@@ -1,5 +1,6 @@
 ﻿using CPProject.DataBaseModel.types;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Reflection;
 
 namespace CPProject.Forms
@@ -34,11 +35,11 @@ namespace CPProject.Forms
             foreach (BlockDurationType value in Enum.GetValues(typeof(BlockDurationType)))
             {
                 var field = value.GetType().GetField(value.ToString());
-                var descriptionAttribute = field.GetCustomAttribute(typeof(DescriptionAttribute)) as DescriptionAttribute;
+                var descriptionAttribute = field?.GetCustomAttribute(typeof(DescriptionAttribute)) as DescriptionAttribute;
                 var description = descriptionAttribute?.Description ?? value.ToString();
                 customComboBoxBlockDuration.Items.Add(new { description, Value = value });
             }
-
+            //customComboBoxBlockDuration.DataSource = Enum.GetValues(typeof(BlockDurationType));
             customComboBoxBlockDuration.DisplayMember = "Description";
             customComboBoxBlockDuration.SelectedIndex = 3;
         }
@@ -48,7 +49,7 @@ namespace CPProject.Forms
             foreach (BlockReasonType value in Enum.GetValues(typeof(BlockReasonType)))
             {
                 var field = value.GetType().GetField(value.ToString());
-                var descriptionAttribute = field.GetCustomAttribute(typeof(DescriptionAttribute)) as DescriptionAttribute;
+                var descriptionAttribute = field?.GetCustomAttribute(typeof(DescriptionAttribute)) as DescriptionAttribute;
                 var description = descriptionAttribute?.Description ?? value.ToString();
                 customComboBoxBlockReason.Items.Add(new { description, Value = value });
             }

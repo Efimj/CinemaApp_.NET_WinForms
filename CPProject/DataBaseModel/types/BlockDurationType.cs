@@ -5,22 +5,22 @@ namespace CPProject.DataBaseModel.types
     public enum BlockDurationType
     {
         [Description("Infinite")]
-        Infinite,
+        Infinite = -1,
         [Description("Fifteen minutes")]
-        FifteenMinutes,
+        FifteenMinutes = 900,
         [Description("Thirty minutes")]
-        ThirtyMinutes,
+        ThirtyMinutes = 1800,
         [Description("One hour")]
-        OneHour,
+        OneHour = 3600,
         [Description("Four hours")]
-        FourHours,
+        FourHours = 14400,
         [Description("One day")]
-        OneDay,
+        OneDay = 86400,
         [Description("Two days")]
-        TwoDays,
+        TwoDays = 172800,
         [Description("One week")]
-        OneWeek,
+        OneWeek = 604800,
         [Description("Two weeks")]
-        TwoWeeks
+        TwoWeeks = 1209600
     }
 }
