@@ -124,6 +124,19 @@ namespace CPProject.Controls.Pages
             labelDescription.Text = film.Description;
         }
 
+        private int GetFilmScore()
+        {
+            IEnumerable<Review> reviews = DataBase.ReviewCollection.Where(item => item.FilmId == Film.Id);
+            if (reviews.Count() == 0)
+                return 0;
+            int score = 0;
+            foreach (Review review in reviews)
+            {
+                score += review.Score;
+            }
+            return score / reviews.Count();
+        }
+
         private void customRoundedButtonGoBack_Click_1(object sender, EventArgs e)
         {
             goBack();
@@ -211,6 +224,7 @@ namespace CPProject.Controls.Pages
 
         private void FilmPage_Load(object sender, EventArgs e)
         {
+            ratingControlFilmScore.CurrentReting = GetFilmScore();
             LoadReviewPanel();
         }
 

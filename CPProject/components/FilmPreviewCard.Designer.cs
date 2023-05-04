@@ -65,7 +65,7 @@
             // ratingControl1
             // 
             ratingControl1.BackColor = Color.White;
-            ratingControl1.CurrentReting = null;
+            ratingControl1.CurrentReting = 0;
             ratingControl1.Editable = false;
             ratingControl1.Location = new Point(70, 337);
             ratingControl1.Margin = new Padding(0);
@@ -126,6 +126,7 @@
             MaximumSize = new Size(250, 370);
             Name = "FilmPreviewCard";
             Size = new Size(250, 370);
+            Load += FilmPreviewCard_Load;
             VisibleChanged += FilmPreviewCard_VisibleChanged;
             roundedPanel1.ResumeLayout(false);
             roundedPanel2.ResumeLayout(false);

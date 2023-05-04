@@ -170,7 +170,7 @@ namespace CPProject.Controls
                 FilmPreviewCard card = new FilmPreviewCard(() =>
                 {
                     FilmPage fp = new FilmPage(film, updateFilm); setNewPage(fp);
-                }, 5, film);
+                }, film);
                 card.Margin = new Padding(5, 5, 5, 5);
                 filmCollection.Add(film);
                 flowLayoutPanelFilms.Controls.Add(card);
@@ -183,7 +183,7 @@ namespace CPProject.Controls
             FilmPreviewCard card = new FilmPreviewCard(() =>
             {
                 filmPage = new FilmPage(film, updateFilm); setNewPage(filmPage);
-            }, 5, film);
+            }, film);
             card.Margin = new Padding(5, 5, 5, 5);
             filmCollection.Add(film);
             flowLayoutPanelFilms.Controls.Add(card);

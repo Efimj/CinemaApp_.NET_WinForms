@@ -1,20 +1,34 @@
-﻿using CPProject.DataBaseModel.entities;
+﻿using CPProject.DataBaseModel;
+using CPProject.DataBaseModel.entities;
 using CPProject.imageHandler;
 
 namespace CPProject.components
 {
     public partial class FilmPreviewCard : UserControl, IDisposable
     {
+        private static CinemaDataBase? DBInstance = null;
         private bool _disposed = false;
         private Film? film = null;
-        public FilmPreviewCard(Action onClick, int rating, Film film)
+
+        private static CinemaDataBase DataBase
+        {
+            get
+            {
+                if (DBInstance == null)
+                {
+                    DBInstance = CinemaDataBase.Instance;
+                }
+                return DBInstance;
+            }
+        }
+
+        public FilmPreviewCard(Action onClick, Film film)
         {
             InitializeComponent();
             AddMouseHandlers(this);
             AddHandCursor(this);
             OnClick = onClick;
             Film = film;
-            ratingControl1.CurrentReting = rating;
             hoverEventTimer = new System.Windows.Forms.Timer();
             clickEventTimer = new System.Windows.Forms.Timer();
             hoverEventTimer.Tick += OnHoverTimerTick;
@@ -201,6 +215,24 @@ namespace CPProject.components
                 // Если элемент управления стал невидимым
                 // pictureBoxFilmImage.Image.Dispose();
             }
+        }
+
+        private int GetFilmScore()
+        {
+            IEnumerable<Review> reviews = DataBase.ReviewCollection.Where(item => item.FilmId == Film.Id);
+            if (reviews.Count() == 0)
+                return 0;
+            int score = 0;
+            foreach (Review review in reviews)
+            {
+                score += review.Score;
+            }
+            return score / reviews.Count();
+        }
+
+        private void FilmPreviewCard_Load(object sender, EventArgs e)
+        {
+            ratingControl1.CurrentReting = GetFilmScore();
         }
 
         //protected new virtual void Dispose(bool disposing)

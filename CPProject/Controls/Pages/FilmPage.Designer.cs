@@ -44,7 +44,7 @@
             label5 = new Label();
             labelTitle = new Label();
             tableLayoutPanel6 = new TableLayoutPanel();
-            ratingControl1 = new components.ui.RatingControl();
+            ratingControlFilmScore = new components.ui.RatingControl();
             tableLayoutPanel7 = new TableLayoutPanel();
             labelGanre = new Label();
             label2 = new Label();
@@ -337,7 +337,7 @@
             tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 115F));
             tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel6.Controls.Add(ratingControl1, 1, 0);
+            tableLayoutPanel6.Controls.Add(ratingControlFilmScore, 1, 0);
             tableLayoutPanel6.Dock = DockStyle.Fill;
             tableLayoutPanel6.Location = new Point(0, 30);
             tableLayoutPanel6.Margin = new Padding(0);
@@ -349,17 +349,17 @@
             tableLayoutPanel6.Size = new Size(372, 30);
             tableLayoutPanel6.TabIndex = 1;
             // 
-            // ratingControl1
+            // ratingControlFilmScore
             // 
-            ratingControl1.BackColor = Color.White;
-            ratingControl1.CurrentReting = 3;
-            ratingControl1.Dock = DockStyle.Fill;
-            ratingControl1.Editable = false;
-            ratingControl1.Location = new Point(128, 0);
-            ratingControl1.Margin = new Padding(0);
-            ratingControl1.Name = "ratingControl1";
-            ratingControl1.Size = new Size(115, 30);
-            ratingControl1.TabIndex = 0;
+            ratingControlFilmScore.BackColor = Color.White;
+            ratingControlFilmScore.CurrentReting = 0;
+            ratingControlFilmScore.Dock = DockStyle.Fill;
+            ratingControlFilmScore.Editable = false;
+            ratingControlFilmScore.Location = new Point(128, 0);
+            ratingControlFilmScore.Margin = new Padding(0);
+            ratingControlFilmScore.Name = "ratingControlFilmScore";
+            ratingControlFilmScore.Size = new Size(115, 30);
+            ratingControlFilmScore.TabIndex = 0;
             // 
             // tableLayoutPanel7
             // 
@@ -599,7 +599,7 @@
         private TableLayoutPanel tableLayoutPanel5;
         private Label labelTitle;
         private TableLayoutPanel tableLayoutPanel6;
-        private components.ui.RatingControl ratingControl1;
+        private components.ui.RatingControl ratingControlFilmScore;
         private TableLayoutPanel tableLayoutPanel11;
         private Label labelRelease;
         private Label label6;

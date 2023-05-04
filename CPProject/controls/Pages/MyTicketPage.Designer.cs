@@ -28,15 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             tableLayoutPanel1 = new TableLayoutPanel();
             tableLayoutPanel4 = new TableLayoutPanel();
             roundedPanel3 = new components.ui.RoundedPanel();
             tableLayoutPanel2 = new TableLayoutPanel();
             tableLayoutPanel5 = new TableLayoutPanel();
+            roundedButtonTicketDetails = new components.ui.RoundedButton();
             roundedButtonReturnTicket = new components.ui.RoundedButton();
-            roundedPanelDGV = new components.ui.RoundedPanel();
+            roundedPanelContent = new components.ui.RoundedPanel();
             roundedPanelDGVContent = new components.ui.RoundedPanel();
             dataGridViewTickets = new DataGridView();
             Column1 = new DataGridViewTextBoxColumn();
@@ -53,7 +55,7 @@
             roundedPanel3.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             tableLayoutPanel5.SuspendLayout();
-            roundedPanelDGV.SuspendLayout();
+            roundedPanelContent.SuspendLayout();
             roundedPanelDGVContent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewTickets).BeginInit();
             tableLayoutPanel3.SuspendLayout();
@@ -121,7 +123,7 @@
             tableLayoutPanel2.ColumnCount = 1;
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel2.Controls.Add(tableLayoutPanel5, 0, 4);
-            tableLayoutPanel2.Controls.Add(roundedPanelDGV, 0, 2);
+            tableLayoutPanel2.Controls.Add(roundedPanelContent, 0, 2);
             tableLayoutPanel2.Controls.Add(tableLayoutPanel3, 0, 0);
             tableLayoutPanel2.Dock = DockStyle.Fill;
             tableLayoutPanel2.Location = new Point(15, 15);
@@ -138,13 +140,15 @@
             // 
             // tableLayoutPanel5
             // 
-            tableLayoutPanel5.ColumnCount = 5;
+            tableLayoutPanel5.ColumnCount = 6;
             tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 70F));
             tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 70F));
             tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 150F));
+            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 5F));
             tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 150F));
-            tableLayoutPanel5.Controls.Add(roundedButtonReturnTicket, 4, 0);
+            tableLayoutPanel5.Controls.Add(roundedButtonTicketDetails, 5, 0);
+            tableLayoutPanel5.Controls.Add(roundedButtonReturnTicket, 3, 0);
             tableLayoutPanel5.Dock = DockStyle.Fill;
             tableLayoutPanel5.Location = new Point(0, 430);
             tableLayoutPanel5.Margin = new Padding(0);
@@ -153,6 +157,31 @@
             tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanel5.Size = new Size(620, 40);
             tableLayoutPanel5.TabIndex = 3;
+            // 
+            // roundedButtonTicketDetails
+            // 
+            roundedButtonTicketDetails.Autofocus = false;
+            roundedButtonTicketDetails.BackColor = Color.White;
+            roundedButtonTicketDetails.BackgroundColor = Color.White;
+            roundedButtonTicketDetails.BorderColor = Color.FromArgb(224, 224, 224);
+            roundedButtonTicketDetails.BorderRadius = 7;
+            roundedButtonTicketDetails.BorderSize = 1;
+            roundedButtonTicketDetails.Dock = DockStyle.Fill;
+            roundedButtonTicketDetails.FlatAppearance.BorderSize = 0;
+            roundedButtonTicketDetails.FlatStyle = FlatStyle.Flat;
+            roundedButtonTicketDetails.FocusBorderColor = Color.Gray;
+            roundedButtonTicketDetails.FocusBorderSize = 2;
+            roundedButtonTicketDetails.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            roundedButtonTicketDetails.ForeColor = Color.Black;
+            roundedButtonTicketDetails.Location = new Point(470, 0);
+            roundedButtonTicketDetails.Margin = new Padding(0);
+            roundedButtonTicketDetails.Name = "roundedButtonTicketDetails";
+            roundedButtonTicketDetails.Size = new Size(150, 40);
+            roundedButtonTicketDetails.TabIndex = 13;
+            roundedButtonTicketDetails.Text = "Details";
+            roundedButtonTicketDetails.TextColor = Color.Black;
+            roundedButtonTicketDetails.UseVisualStyleBackColor = false;
+            roundedButtonTicketDetails.Click += roundedButtonTicketDetails_Click;
             // 
             // roundedButtonReturnTicket
             // 
@@ -169,35 +198,35 @@
             roundedButtonReturnTicket.FocusBorderSize = 2;
             roundedButtonReturnTicket.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             roundedButtonReturnTicket.ForeColor = Color.Black;
-            roundedButtonReturnTicket.Location = new Point(472, 0);
-            roundedButtonReturnTicket.Margin = new Padding(2, 0, 2, 0);
+            roundedButtonReturnTicket.Location = new Point(315, 0);
+            roundedButtonReturnTicket.Margin = new Padding(0);
             roundedButtonReturnTicket.Name = "roundedButtonReturnTicket";
-            roundedButtonReturnTicket.Size = new Size(146, 40);
+            roundedButtonReturnTicket.Size = new Size(150, 40);
             roundedButtonReturnTicket.TabIndex = 12;
             roundedButtonReturnTicket.Text = "Return ticket";
             roundedButtonReturnTicket.TextColor = Color.Black;
             roundedButtonReturnTicket.UseVisualStyleBackColor = false;
             // 
-            // roundedPanelDGV
+            // roundedPanelContent
             // 
-            roundedPanelDGV.Autofocus = false;
-            roundedPanelDGV.BackColor = Color.White;
-            roundedPanelDGV.BackgroundColor = Color.White;
-            roundedPanelDGV.BorderColor = Color.FromArgb(224, 224, 224);
-            roundedPanelDGV.BorderRadius = 1;
-            roundedPanelDGV.BorderSize = 1;
-            roundedPanelDGV.Controls.Add(roundedPanelDGVContent);
-            roundedPanelDGV.Dock = DockStyle.Fill;
-            roundedPanelDGV.FocusBorderColor = Color.Gray;
-            roundedPanelDGV.FocusBorderSize = 2;
-            roundedPanelDGV.ForeColor = Color.White;
-            roundedPanelDGV.Location = new Point(0, 47);
-            roundedPanelDGV.Margin = new Padding(0);
-            roundedPanelDGV.Name = "roundedPanelDGV";
-            roundedPanelDGV.Padding = new Padding(2, 2, 1, 2);
-            roundedPanelDGV.Size = new Size(620, 376);
-            roundedPanelDGV.TabIndex = 3;
-            roundedPanelDGV.TextColor = Color.White;
+            roundedPanelContent.Autofocus = false;
+            roundedPanelContent.BackColor = Color.White;
+            roundedPanelContent.BackgroundColor = Color.White;
+            roundedPanelContent.BorderColor = Color.FromArgb(224, 224, 224);
+            roundedPanelContent.BorderRadius = 10;
+            roundedPanelContent.BorderSize = 1;
+            roundedPanelContent.Controls.Add(roundedPanelDGVContent);
+            roundedPanelContent.Dock = DockStyle.Fill;
+            roundedPanelContent.FocusBorderColor = Color.Gray;
+            roundedPanelContent.FocusBorderSize = 2;
+            roundedPanelContent.ForeColor = Color.White;
+            roundedPanelContent.Location = new Point(0, 47);
+            roundedPanelContent.Margin = new Padding(0);
+            roundedPanelContent.Name = "roundedPanelContent";
+            roundedPanelContent.Padding = new Padding(2, 2, 1, 2);
+            roundedPanelContent.Size = new Size(620, 376);
+            roundedPanelContent.TabIndex = 3;
+            roundedPanelContent.TextColor = Color.White;
             // 
             // roundedPanelDGVContent
             // 
@@ -205,7 +234,7 @@
             roundedPanelDGVContent.BackColor = Color.White;
             roundedPanelDGVContent.BackgroundColor = Color.White;
             roundedPanelDGVContent.BorderColor = Color.FromArgb(224, 224, 224);
-            roundedPanelDGVContent.BorderRadius = -3;
+            roundedPanelDGVContent.BorderRadius = 10;
             roundedPanelDGVContent.BorderSize = 1;
             roundedPanelDGVContent.Controls.Add(dataGridViewTickets);
             roundedPanelDGVContent.Dock = DockStyle.Fill;
@@ -229,24 +258,24 @@
             dataGridViewTickets.BackgroundColor = Color.White;
             dataGridViewTickets.BorderStyle = BorderStyle.None;
             dataGridViewTickets.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = SystemColors.Control;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = Color.White;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dataGridViewTickets.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = Color.White;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridViewTickets.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewTickets.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewTickets.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5 });
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = SystemColors.Window;
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle4.ForeColor = Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = Color.MediumSlateBlue;
-            dataGridViewCellStyle4.SelectionForeColor = Color.White;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
-            dataGridViewTickets.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Window;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = Color.MediumSlateBlue;
+            dataGridViewCellStyle3.SelectionForeColor = Color.White;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            dataGridViewTickets.DefaultCellStyle = dataGridViewCellStyle3;
             dataGridViewTickets.Dock = DockStyle.Fill;
             dataGridViewTickets.GridColor = Color.FromArgb(224, 224, 224);
             dataGridViewTickets.Location = new Point(0, 0);
@@ -260,11 +289,13 @@
             dataGridViewTickets.Size = new Size(617, 372);
             dataGridViewTickets.TabIndex = 1;
             dataGridViewTickets.VirtualMode = true;
+            dataGridViewTickets.CellClick += dataGridViewTickets_CellClick;
+            dataGridViewTickets.CellValueNeeded += dataGridViewTickets_CellValueNeeded;
             // 
             // Column1
             // 
             Column1.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            Column1.FillWeight = 58.59104F;
+            Column1.FillWeight = 56.9098129F;
             Column1.HeaderText = "Film title";
             Column1.Name = "Column1";
             Column1.ReadOnly = true;
@@ -272,7 +303,7 @@
             // Column2
             // 
             Column2.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            Column2.FillWeight = 58.59104F;
+            Column2.FillWeight = 56.9098129F;
             Column2.HeaderText = "Address";
             Column2.Name = "Column2";
             Column2.ReadOnly = true;
@@ -280,26 +311,30 @@
             // Column3
             // 
             Column3.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            Column3.FillWeight = 58.59104F;
+            Column3.FillWeight = 56.9098129F;
             Column3.HeaderText = "Date";
             Column3.Name = "Column3";
             Column3.ReadOnly = true;
             // 
             // Column4
             // 
-            Column4.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            Column4.FillWeight = 40F;
-            Column4.HeaderText = "Tickets";
+            Column4.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            Column4.FillWeight = 35.9045334F;
+            Column4.HeaderText = "Seat";
             Column4.Name = "Column4";
             Column4.ReadOnly = true;
+            Column4.Width = 75;
             // 
             // Column5
             // 
-            Column5.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            Column5.FillWeight = 58.59104F;
+            Column5.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            Column5.DefaultCellStyle = dataGridViewCellStyle2;
+            Column5.FillWeight = 29.1391678F;
             Column5.HeaderText = "Price";
             Column5.Name = "Column5";
             Column5.ReadOnly = true;
+            Column5.Width = 75;
             // 
             // tableLayoutPanel3
             // 
@@ -409,7 +444,7 @@
             roundedPanel3.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel5.ResumeLayout(false);
-            roundedPanelDGV.ResumeLayout(false);
+            roundedPanelContent.ResumeLayout(false);
             roundedPanelDGVContent.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridViewTickets).EndInit();
             tableLayoutPanel3.ResumeLayout(false);
@@ -424,17 +459,18 @@
         private TableLayoutPanel tableLayoutPanel2;
         private TableLayoutPanel tableLayoutPanel5;
         private components.ui.RoundedButton roundedButtonReturnTicket;
-        private components.ui.RoundedPanel roundedPanelDGV;
+        private components.ui.RoundedPanel roundedPanelContent;
         private components.ui.RoundedPanel roundedPanelDGVContent;
         private DataGridView dataGridViewTickets;
+        private TableLayoutPanel tableLayoutPanel3;
+        private components.ui.RoundedButton roundedButtonSearch;
+        private components.ui.RoundedButton roundedButtonActive;
+        private components.ui.RoundedButton roundedButtonArchive;
         private DataGridViewTextBoxColumn Column1;
         private DataGridViewTextBoxColumn Column2;
         private DataGridViewTextBoxColumn Column3;
         private DataGridViewTextBoxColumn Column4;
         private DataGridViewTextBoxColumn Column5;
-        private TableLayoutPanel tableLayoutPanel3;
-        private components.ui.RoundedButton roundedButtonSearch;
-        private components.ui.RoundedButton roundedButtonActive;
-        private components.ui.RoundedButton roundedButtonArchive;
+        private components.ui.RoundedButton roundedButtonTicketDetails;
     }
 }

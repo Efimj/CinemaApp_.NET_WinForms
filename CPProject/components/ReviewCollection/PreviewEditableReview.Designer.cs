@@ -194,7 +194,7 @@
             labelUserName.Text = "User name";
             labelUserName.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // ratingControl1
+            // ratingControlFilmScore
             // 
             ratingControl1.BackColor = Color.White;
             ratingControl1.CurrentReting = null;
@@ -202,7 +202,7 @@
             ratingControl1.Editable = false;
             ratingControl1.Location = new Point(498, 0);
             ratingControl1.Margin = new Padding(0);
-            ratingControl1.Name = "ratingControl1";
+            ratingControl1.Name = "ratingControlFilmScore";
             ratingControl1.Size = new Size(110, 35);
             ratingControl1.TabIndex = 5;
             // 
