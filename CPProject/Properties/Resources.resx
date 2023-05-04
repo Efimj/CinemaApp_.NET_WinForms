@@ -136,6 +136,9 @@
   <data name="star_outfilled" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\star_outfilled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="MakeCopy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MakeCopy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="ticket_black" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ticket_black.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -181,6 +184,9 @@
   <data name="session_black" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\session_black.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="TrashBasket" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TrashBasket.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="logout_white" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logout_white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -199,7 +205,7 @@
   <data name="Trash Can - Lined" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Trash Can - Lined.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="TrashBasket" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\TrashBasket.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="MakeCopy (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MakeCopy (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

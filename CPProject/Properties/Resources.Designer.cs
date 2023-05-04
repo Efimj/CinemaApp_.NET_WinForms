@@ -183,6 +183,26 @@ namespace CPProject.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap MakeCopy {
+            get {
+                object obj = ResourceManager.GetObject("MakeCopy", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap MakeCopy__1_ {
+            get {
+                object obj = ResourceManager.GetObject("MakeCopy (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap PanelBackground {
             get {
                 object obj = ResourceManager.GetObject("PanelBackground", resourceCulture);

@@ -19,7 +19,6 @@ namespace CPProject.controls.Pages
         private int? selectedRowIndex = null;
         private RoundedButton? lastButtonActivated;
         private MyTicketPageState currentMyTicketPageState;
-        private UserControl? lastUserControl;
         private MyTicketPageState CurrentMyTicketPageState
         {
             get => currentMyTicketPageState;
@@ -197,7 +196,6 @@ namespace CPProject.controls.Pages
                     DGVHide();
                     break;
             }
-            roundedPanelDGVContent.Controls.Remove(lastUserControl);
             DGVModeChange();
         }
 
@@ -377,14 +375,24 @@ namespace CPProject.controls.Pages
 
         private void roundedButtonTicketDetails_Click(object sender, EventArgs e)
         {
-            TicketDetails ticketDetails = new TicketDetails();
-            ticketDetails.Dock = DockStyle.Fill;
-            SuspendLayout();
-            setButtonActive(roundedButtonSearch);
-            CurrentMyTicketPageState = MyTicketPageState.FindTicket;
-            roundedPanelContent.Controls.Add(ticketDetails);
-            lastUserControl = ticketDetails;
-            ResumeLayout(false);
+            if (SelectedRowIndex == null)
+                return;
+            Ticket? ticket = GetTicket((int)SelectedRowIndex);
+            if (ticket == null)
+                return;
+            TicketDetailsPage ticketDetails = new TicketDetailsPage(ticket);
+            setNewPage(ticketDetails);
+        }
+
+        private void setNewPage(UserControl page)
+        {
+            this.Hide();
+            page.Dock = DockStyle.Fill;
+            Panel? parentPanel = (Panel?)this.Parent;
+            if (parentPanel != null)
+            {
+                parentPanel.Controls.Add(page);
+            }
         }
     }
 }
