@@ -475,8 +475,8 @@
             // tableLayoutPanel8
             // 
             tableLayoutPanel8.ColumnCount = 2;
-            tableLayoutPanel8.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 54.7120438F));
-            tableLayoutPanel8.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 45.2879562F));
+            tableLayoutPanel8.ColumnStyles.Add(new ColumnStyle());
+            tableLayoutPanel8.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel8.Controls.Add(labelTicketId, 0, 0);
             tableLayoutPanel8.Controls.Add(roundedButton1, 1, 0);
             tableLayoutPanel8.Dock = DockStyle.Fill;
@@ -485,19 +485,20 @@
             tableLayoutPanel8.Name = "tableLayoutPanel8";
             tableLayoutPanel8.RowCount = 1;
             tableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanel8.Size = new Size(382, 30);
             tableLayoutPanel8.TabIndex = 3;
             // 
             // labelTicketId
             // 
+            labelTicketId.AutoSize = true;
             labelTicketId.Dock = DockStyle.Left;
             labelTicketId.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             labelTicketId.ForeColor = Color.FromArgb(64, 64, 64);
             labelTicketId.ImageAlign = ContentAlignment.MiddleRight;
-            labelTicketId.Location = new Point(3, 0);
+            labelTicketId.Location = new Point(10, 0);
+            labelTicketId.Margin = new Padding(10, 0, 0, 0);
             labelTicketId.Name = "labelTicketId";
-            labelTicketId.Size = new Size(203, 30);
+            labelTicketId.Size = new Size(173, 30);
             labelTicketId.TabIndex = 1;
             labelTicketId.Text = "507f191e810c19729de860ea";
             labelTicketId.TextAlign = ContentAlignment.MiddleLeft;
@@ -517,7 +518,7 @@
             roundedButton1.FocusBorderSize = 2;
             roundedButton1.ForeColor = Color.White;
             roundedButton1.Image = Properties.Resources.MakeCopy__1_;
-            roundedButton1.Location = new Point(209, 0);
+            roundedButton1.Location = new Point(183, 0);
             roundedButton1.Margin = new Padding(0);
             roundedButton1.Name = "roundedButton1";
             roundedButton1.Size = new Size(37, 30);
@@ -687,6 +688,7 @@
             tableLayoutPanel12.ResumeLayout(false);
             tableLayoutPanel11.ResumeLayout(false);
             tableLayoutPanel8.ResumeLayout(false);
+            tableLayoutPanel8.PerformLayout();
             tableLayoutPanel7.ResumeLayout(false);
             tableLayoutPanel6.ResumeLayout(false);
             roundedPanel14.ResumeLayout(false);

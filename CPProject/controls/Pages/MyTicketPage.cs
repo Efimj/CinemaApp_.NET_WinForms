@@ -1,4 +1,5 @@
-﻿using CPProject.components.ui;
+﻿using CPProject.components;
+using CPProject.components.ui;
 using CPProject.DataBaseModel;
 using CPProject.DataBaseModel.entities;
 using CPProject.User;
@@ -19,6 +20,7 @@ namespace CPProject.controls.Pages
         private int? selectedRowIndex = null;
         private RoundedButton? lastButtonActivated;
         private MyTicketPageState currentMyTicketPageState;
+        private SearchTicketInput searchTicketInput;
         private MyTicketPageState CurrentMyTicketPageState
         {
             get => currentMyTicketPageState;
@@ -57,6 +59,15 @@ namespace CPProject.controls.Pages
             Dock = DockStyle.Fill;
             InitializePage();
             DGVInitialize();
+            SearchTicketInputInitialize();
+        }
+
+        private void SearchTicketInputInitialize()
+        {
+            SearchTicketInput searchTicketInput = new SearchTicketInput();
+            searchTicketInput.Hide();
+            this.searchTicketInput = searchTicketInput;
+            roundedPanelContent.Controls.Add(searchTicketInput);
         }
 
         private void DGVInitialize()
@@ -92,21 +103,11 @@ namespace CPProject.controls.Pages
 
         private void OnSelectedRowChange()
         {
-            //if (SelectedRowIndex < 0)
-            //    return;
-            //switch (CurrentMyTicketPageState)
-            //{
-            //    case MyTicketPageState.ActiveTickets:
-            //        roundedButtonReturnTicket.Show();
-            //        break;
-            //    case MyTicketPageState.ArchiveTickets:
-            //        roundedButtonReturnTicket.Hide();
-            //        break;
-            //    case MyTicketPageState.FindTicket:
-            //        roundedButtonReturnTicket.Hide();
-            //        roundedButtonTicketDetails.Hide();
-            //        break;
-            //}
+            if (SelectedRowIndex == null || SelectedRowIndex < 0)
+            {
+                DisavbleActionButtons();
+            }
+            ActivateActionButtons();
         }
 
         private int GetRowCount()
@@ -173,6 +174,18 @@ namespace CPProject.controls.Pages
             roundedButtonReturnTicket.Hide();
         }
 
+        private void ActivateActionButtons()
+        {
+            roundedButtonReturnTicket.Enabled = true;
+            roundedButtonTicketDetails.Enabled = true;
+        }
+
+        private void DisavbleActionButtons()
+        {
+            roundedButtonReturnTicket.Enabled = true;
+            roundedButtonTicketDetails.Enabled = true;
+        }
+
         private void OnChangePageState()
         {
             switch (CurrentMyTicketPageState)
@@ -181,21 +194,25 @@ namespace CPProject.controls.Pages
                     setButtonActive(roundedButtonActive);
                     roundedButtonReturnTicket.Show();
                     roundedButtonTicketDetails.Show();
+                    searchTicketInput?.Hide();
                     DGVActivate();
                     break;
                 case MyTicketPageState.ArchiveTickets:
                     setButtonActive(roundedButtonArchive);
                     roundedButtonReturnTicket.Hide();
                     roundedButtonTicketDetails.Show();
+                    searchTicketInput?.Hide();
                     DGVActivate();
                     break;
                 case MyTicketPageState.FindTicket:
                     setButtonActive(roundedButtonSearch);
                     roundedButtonReturnTicket.Hide();
                     roundedButtonTicketDetails.Hide();
+                    searchTicketInput?.Show();
                     DGVHide();
                     break;
             }
+            SelectedRowIndex = null;
             DGVModeChange();
         }
 

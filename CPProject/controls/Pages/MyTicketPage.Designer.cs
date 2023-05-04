@@ -374,6 +374,7 @@
             roundedButtonSearch.Location = new Point(160, 0);
             roundedButtonSearch.Margin = new Padding(0);
             roundedButtonSearch.Name = "roundedButtonSearch";
+            roundedButtonSearch.Padding = new Padding(4, 0, 0, 0);
             roundedButtonSearch.Size = new Size(80, 40);
             roundedButtonSearch.TabIndex = 15;
             roundedButtonSearch.Text = "Search";
