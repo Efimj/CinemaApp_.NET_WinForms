@@ -309,14 +309,6 @@ namespace CPProject.components
             return nextReviewCollection;
         }
 
-        //private void SelectLastReview()
-        //{
-        //    if (panelReviews.Controls.Count > 0)
-        //    {
-        //        this.SelectNextControl(panelReviews.Controls[0], true, true, true, true);
-        //    }
-        //}
-
         private void FilmReviewList_Load(object sender, EventArgs e)
         {
             SetUserReview();
@@ -328,7 +320,10 @@ namespace CPProject.components
         private void CheckUserBlock()
         {
             if (AccountHandler.Instance.User == null)
+            {
+                labelInformation.Visible = false;
                 return;
+            }
             if (new AccountHelpers().UpdateBlockedUserAndCheckIsUnblock(AccountHandler.Instance.User.Id))
             {
                 labelInformation.Text = "Your comments are not visible because you are blocked.";

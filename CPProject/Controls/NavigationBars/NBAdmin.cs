@@ -111,6 +111,7 @@ namespace CPProject.Controls.NavigationBars
         {
             setButtonActive((RoundedButton)sender, BanImageActive, BanImageDefault);
             pagePanel.Controls.Clear();
+            pagePanel.Controls.Add(new UserListPage());
         }
     }
 }
