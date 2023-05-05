@@ -3,6 +3,7 @@ using CPProject.components.ui;
 using CPProject.DataBaseModel;
 using CPProject.DataBaseModel.entities;
 using CPProject.User;
+using CPProject.User.types;
 using System.Diagnostics;
 
 namespace CPProject.controls.Pages
@@ -56,15 +57,22 @@ namespace CPProject.controls.Pages
         public MyTicketPage()
         {
             InitializeComponent();
+            SelectedRowIndex = null;
             Dock = DockStyle.Fill;
-            InitializePage();
             DGVInitialize();
             SearchTicketInputInitialize();
+            InitializePage();
+        }
+
+        private void OnTicketFound(Ticket ticket)
+        {
+            GoTicketDetails(ticket);
         }
 
         private void SearchTicketInputInitialize()
         {
-            SearchTicketInput searchTicketInput = new SearchTicketInput();
+            SearchTicketInput searchTicketInput = new SearchTicketInput(OnTicketFound);
+            searchTicketInput.Dock = DockStyle.Fill;
             searchTicketInput.Hide();
             this.searchTicketInput = searchTicketInput;
             roundedPanelContent.Controls.Add(searchTicketInput);
@@ -105,7 +113,8 @@ namespace CPProject.controls.Pages
         {
             if (SelectedRowIndex == null || SelectedRowIndex < 0)
             {
-                DisavbleActionButtons();
+                DisableActionButtons();
+                return;
             }
             ActivateActionButtons();
         }
@@ -180,10 +189,10 @@ namespace CPProject.controls.Pages
             roundedButtonTicketDetails.Enabled = true;
         }
 
-        private void DisavbleActionButtons()
+        private void DisableActionButtons()
         {
-            roundedButtonReturnTicket.Enabled = true;
-            roundedButtonTicketDetails.Enabled = true;
+            roundedButtonReturnTicket.Enabled = false;
+            roundedButtonTicketDetails.Enabled = false;
         }
 
         private void OnChangePageState()
@@ -194,26 +203,38 @@ namespace CPProject.controls.Pages
                     setButtonActive(roundedButtonActive);
                     roundedButtonReturnTicket.Show();
                     roundedButtonTicketDetails.Show();
-                    searchTicketInput?.Hide();
+                    SearchTicketInputHide();
                     DGVActivate();
                     break;
                 case MyTicketPageState.ArchiveTickets:
                     setButtonActive(roundedButtonArchive);
                     roundedButtonReturnTicket.Hide();
                     roundedButtonTicketDetails.Show();
-                    searchTicketInput?.Hide();
+                    SearchTicketInputHide();
                     DGVActivate();
                     break;
                 case MyTicketPageState.FindTicket:
                     setButtonActive(roundedButtonSearch);
                     roundedButtonReturnTicket.Hide();
                     roundedButtonTicketDetails.Hide();
-                    searchTicketInput?.Show();
+                    SearchTicketInputShow();
                     DGVHide();
                     break;
             }
-            SelectedRowIndex = null;
             DGVModeChange();
+            SelectedRowIndex = null;
+        }
+
+        private void SearchTicketInputShow()
+        {
+            roundedPanelContent.Padding = new Padding(10);
+            searchTicketInput?.Show();
+        }
+
+        private void SearchTicketInputHide()
+        {
+            roundedPanelContent.Padding = new Padding(2, 2, 1, 2);
+            searchTicketInput?.Hide();
         }
 
         private void DGVHide()
@@ -397,6 +418,11 @@ namespace CPProject.controls.Pages
             Ticket? ticket = GetTicket((int)SelectedRowIndex);
             if (ticket == null)
                 return;
+            GoTicketDetails(ticket);
+        }
+
+        private void GoTicketDetails(Ticket? ticket)
+        {
             TicketDetailsPage ticketDetails = new TicketDetailsPage(ticket);
             setNewPage(ticketDetails);
         }
@@ -409,6 +435,32 @@ namespace CPProject.controls.Pages
             if (parentPanel != null)
             {
                 parentPanel.Controls.Add(page);
+            }
+        }
+
+        private void roundedButtonReturnTicket_Click(object sender, EventArgs e)
+        {
+            if (SelectedRowIndex == null)
+                return;
+            Ticket? ticket = GetTicket((int)SelectedRowIndex);
+            if (ticket == null)
+                return;
+            DataBaseModel.entities.User? user = AccountHandler.Instance.User;
+            if (user == null)
+                return;
+            bool result = false;
+            if (user is Admin admin)
+            {
+                result = admin.returnTicket(ticket.Id);
+            }
+            else if (user is Customer customer)
+            {
+                result = customer.returnTicket(ticket.Id); ;
+            }
+            if (result)
+            {
+                MessageBox.Show("Ticket was successfully returned.", "Ticket information");
+                CurrentMyTicketPageState = MyTicketPageState.ActiveTickets;
             }
         }
     }

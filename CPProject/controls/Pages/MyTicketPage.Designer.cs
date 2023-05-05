@@ -206,6 +206,7 @@
             roundedButtonReturnTicket.Text = "Return ticket";
             roundedButtonReturnTicket.TextColor = Color.Black;
             roundedButtonReturnTicket.UseVisualStyleBackColor = false;
+            roundedButtonReturnTicket.Click += roundedButtonReturnTicket_Click;
             // 
             // roundedPanelContent
             // 

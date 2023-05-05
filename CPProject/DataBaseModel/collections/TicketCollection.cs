@@ -64,11 +64,13 @@ namespace CPProject.DataBaseModel.collections
 
             return SerialiazeToJSON(serialize_config.Default.SerializeTicketCollectionPath);
         }
+
         private bool CheckUserAndSessionExistence(string userId, string sessionId)
         {
             return DataBase.UserCollection.Any(item => item.Id == userId)
                    && DataBase.SessionCollection.Any(item => item.Id == sessionId);
         }
+
         private bool SeatNotOccupied(string sessionId, int place)
         {
             Session? session = DataBase.SessionCollection.Find(item => item.Id == sessionId && place >= 1);
@@ -80,7 +82,7 @@ namespace CPProject.DataBaseModel.collections
             {
                 return false;
             }
-            return !DataBase.TicketCollection.Any(item => item.SessionId == sessionId && item.Place == place);
+            return !DataBase.TicketCollection.Any(item => item.SessionId == sessionId && item.Place == place && item.State != types.TicketState.Returned);
         }
 
         public bool Remove(string ticketId)
