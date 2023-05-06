@@ -48,7 +48,7 @@ namespace CPProject
                 int blockedMinutes = (int)(BlockDurationType)Enum.GetValues(typeof(BlockDurationType)).GetValue((int)blockedUser.BlockDuration);
                 Debug.WriteLine(blockedMinutes);
                 DateTime endingBlockDate = blockedUser.AppointmentDate.AddMinutes(blockedMinutes);
-                MessageBox.Show($"You are blocked!\n\nReason: {blockedUser.BlockReason}\nEnding: {endingBlockDate}\n\n Your reviews will be hidden for the duration of the ban/", "Account information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show($"You are blocked!\n\nReason: {blockedUser.BlockReason}\nEnding: {endingBlockDate}\n\n Your reviews will be hidden for the duration of the ban.", "Account information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

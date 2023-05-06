@@ -11,13 +11,13 @@ namespace CPProject.Controls.NavigationBars
         private static Image FilmImageDefault = Properties.Resources.films_icon_black;
         private static Image TicketImageDefault = Properties.Resources.ticket_black;
         private static Image SessionImageDefault = Properties.Resources.session_black;
-        private static Image BanImageDefault = Properties.Resources.warn_black;
+        private static Image UsersImageDefault = Properties.Resources.Users_dark;
         private static Image AccountImageDefault = Properties.Resources.account_black;
         // active images
         private static Image FilmImageActive = Properties.Resources.films_icon_white;
         private static Image TicketImageActive = Properties.Resources.ticket_white;
         private static Image SessionImageActive = Properties.Resources.session_white;
-        private static Image BanImageActive = Properties.Resources.warn_white;
+        private static Image UsersImageActive = Properties.Resources.Users_light;
         private static Image AccountImageActive = Properties.Resources.account_white;
 
         public NBAdmin(Panel pagePanel)
@@ -109,7 +109,7 @@ namespace CPProject.Controls.NavigationBars
 
         private void roundedButton3_Click(object sender, EventArgs e)
         {
-            setButtonActive((RoundedButton)sender, BanImageActive, BanImageDefault);
+            setButtonActive((RoundedButton)sender, UsersImageActive, UsersImageDefault);
             pagePanel.Controls.Clear();
             pagePanel.Controls.Add(new UserListPage());
         }

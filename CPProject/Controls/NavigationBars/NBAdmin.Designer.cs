@@ -146,7 +146,7 @@
             roundedButton3.FocusBorderSize = 2;
             roundedButton3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             roundedButton3.ForeColor = Color.Black;
-            roundedButton3.Image = Properties.Resources.warn_black;
+            roundedButton3.Image = Properties.Resources.Users_dark;
             roundedButton3.ImageAlign = ContentAlignment.MiddleLeft;
             roundedButton3.Location = new Point(5, 150);
             roundedButton3.Margin = new Padding(0);
@@ -154,7 +154,7 @@
             roundedButton3.Padding = new Padding(20, 0, 0, 0);
             roundedButton3.Size = new Size(314, 40);
             roundedButton3.TabIndex = 18;
-            roundedButton3.Text = "Bans";
+            roundedButton3.Text = "Users";
             roundedButton3.TextAlign = ContentAlignment.MiddleLeft;
             roundedButton3.TextColor = Color.Black;
             roundedButton3.TextImageRelation = TextImageRelation.ImageBeforeText;

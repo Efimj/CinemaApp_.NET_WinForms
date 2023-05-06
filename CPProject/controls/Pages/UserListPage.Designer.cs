@@ -29,8 +29,12 @@
         private void InitializeComponent()
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             tableLayoutPanel1 = new TableLayoutPanel();
             tableLayoutPanel4 = new TableLayoutPanel();
             roundedPanel3 = new components.ui.RoundedPanel();
@@ -39,16 +43,17 @@
             roundedButtonBlock = new components.ui.RoundedButton();
             roundedPanelContent = new components.ui.RoundedPanel();
             roundedPanelDGVContent = new components.ui.RoundedPanel();
-            dataGridViewTickets = new DataGridView();
+            dataGridViewUsers = new DataGridView();
             Column1 = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
             Column3 = new DataGridViewTextBoxColumn();
             Column4 = new DataGridViewTextBoxColumn();
             Column5 = new DataGridViewTextBoxColumn();
+            Column6 = new DataGridViewTextBoxColumn();
             tableLayoutPanel3 = new TableLayoutPanel();
             roundedButtonBlocked = new components.ui.RoundedButton();
             roundedButtonAll = new components.ui.RoundedButton();
-            roundedSearchField1 = new components.ui.RoundedSearchField();
+            roundedSearchFieldLogin = new components.ui.RoundedSearchField();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel4.SuspendLayout();
             roundedPanel3.SuspendLayout();
@@ -56,7 +61,7 @@
             tableLayoutPanel5.SuspendLayout();
             roundedPanelContent.SuspendLayout();
             roundedPanelDGVContent.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewTickets).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewUsers).BeginInit();
             tableLayoutPanel3.SuspendLayout();
             SuspendLayout();
             // 
@@ -209,7 +214,7 @@
             roundedPanelDGVContent.BorderColor = Color.FromArgb(224, 224, 224);
             roundedPanelDGVContent.BorderRadius = 10;
             roundedPanelDGVContent.BorderSize = 1;
-            roundedPanelDGVContent.Controls.Add(dataGridViewTickets);
+            roundedPanelDGVContent.Controls.Add(dataGridViewUsers);
             roundedPanelDGVContent.Dock = DockStyle.Fill;
             roundedPanelDGVContent.FocusBorderColor = Color.Gray;
             roundedPanelDGVContent.FocusBorderSize = 2;
@@ -221,16 +226,16 @@
             roundedPanelDGVContent.TabIndex = 4;
             roundedPanelDGVContent.TextColor = Color.White;
             // 
-            // dataGridViewTickets
+            // dataGridViewUsers
             // 
-            dataGridViewTickets.AllowUserToAddRows = false;
-            dataGridViewTickets.AllowUserToDeleteRows = false;
-            dataGridViewTickets.AllowUserToResizeColumns = false;
-            dataGridViewTickets.AllowUserToResizeRows = false;
-            dataGridViewTickets.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewTickets.BackgroundColor = Color.White;
-            dataGridViewTickets.BorderStyle = BorderStyle.None;
-            dataGridViewTickets.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dataGridViewUsers.AllowUserToAddRows = false;
+            dataGridViewUsers.AllowUserToDeleteRows = false;
+            dataGridViewUsers.AllowUserToResizeColumns = false;
+            dataGridViewUsers.AllowUserToResizeRows = false;
+            dataGridViewUsers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewUsers.BackgroundColor = Color.White;
+            dataGridViewUsers.BorderStyle = BorderStyle.None;
+            dataGridViewUsers.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = SystemColors.Control;
             dataGridViewCellStyle1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
@@ -238,34 +243,36 @@
             dataGridViewCellStyle1.SelectionBackColor = Color.White;
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dataGridViewTickets.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewTickets.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewTickets.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5 });
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = SystemColors.Window;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = Color.MediumSlateBlue;
-            dataGridViewCellStyle3.SelectionForeColor = Color.White;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
-            dataGridViewTickets.DefaultCellStyle = dataGridViewCellStyle3;
-            dataGridViewTickets.Dock = DockStyle.Fill;
-            dataGridViewTickets.GridColor = Color.FromArgb(224, 224, 224);
-            dataGridViewTickets.Location = new Point(0, 0);
-            dataGridViewTickets.Margin = new Padding(2);
-            dataGridViewTickets.MultiSelect = false;
-            dataGridViewTickets.Name = "dataGridViewTickets";
-            dataGridViewTickets.ReadOnly = true;
-            dataGridViewTickets.RowHeadersVisible = false;
-            dataGridViewTickets.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewTickets.RowTemplate.Height = 25;
-            dataGridViewTickets.Size = new Size(617, 372);
-            dataGridViewTickets.TabIndex = 1;
-            dataGridViewTickets.VirtualMode = true;
+            dataGridViewUsers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewUsers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewUsers.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5, Column6 });
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = SystemColors.Window;
+            dataGridViewCellStyle7.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle7.ForeColor = Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = Color.MediumSlateBlue;
+            dataGridViewCellStyle7.SelectionForeColor = Color.White;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.False;
+            dataGridViewUsers.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewUsers.Dock = DockStyle.Fill;
+            dataGridViewUsers.GridColor = Color.FromArgb(224, 224, 224);
+            dataGridViewUsers.Location = new Point(0, 0);
+            dataGridViewUsers.Margin = new Padding(2);
+            dataGridViewUsers.MultiSelect = false;
+            dataGridViewUsers.Name = "dataGridViewUsers";
+            dataGridViewUsers.ReadOnly = true;
+            dataGridViewUsers.RowHeadersVisible = false;
+            dataGridViewUsers.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewUsers.RowTemplate.Height = 25;
+            dataGridViewUsers.Size = new Size(617, 372);
+            dataGridViewUsers.TabIndex = 1;
+            dataGridViewUsers.VirtualMode = true;
+            dataGridViewUsers.CellClick += dataGridViewUsers_CellClick;
+            dataGridViewUsers.CellValueNeeded += dataGridViewTickets_CellValueNeeded;
             // 
             // Column1
             // 
-            Column1.FillWeight = 1.13897383F;
+            Column1.FillWeight = 31.60125F;
             Column1.HeaderText = "Login";
             Column1.Name = "Column1";
             Column1.ReadOnly = true;
@@ -273,6 +280,8 @@
             // Column2
             // 
             Column2.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            Column2.DefaultCellStyle = dataGridViewCellStyle2;
             Column2.FillWeight = 56.7441559F;
             Column2.HeaderText = "Date of Birth";
             Column2.Name = "Column2";
@@ -281,26 +290,39 @@
             // 
             // Column3
             // 
-            Column3.FillWeight = 0.622358441F;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            Column3.DefaultCellStyle = dataGridViewCellStyle3;
+            Column3.FillWeight = 17.2675648F;
             Column3.HeaderText = "Tickets";
             Column3.Name = "Column3";
             Column3.ReadOnly = true;
             // 
             // Column4
             // 
-            Column4.FillWeight = 0.6825859F;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            Column4.DefaultCellStyle = dataGridViewCellStyle4;
+            Column4.FillWeight = 18.9386F;
             Column4.HeaderText = "Reviews";
             Column4.Name = "Column4";
             Column4.ReadOnly = true;
             // 
             // Column5
             // 
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            Column5.DefaultCellStyle = dataGridViewCellStyle2;
-            Column5.FillWeight = 0.6049653F;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            Column5.DefaultCellStyle = dataGridViewCellStyle5;
+            Column5.FillWeight = 16.78499F;
             Column5.HeaderText = "Status";
             Column5.Name = "Column5";
             Column5.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            Column6.DefaultCellStyle = dataGridViewCellStyle6;
+            Column6.FillWeight = 18.4565239F;
+            Column6.HeaderText = "Money";
+            Column6.Name = "Column6";
+            Column6.ReadOnly = true;
             // 
             // tableLayoutPanel3
             // 
@@ -309,10 +331,10 @@
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle());
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 5F));
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 224F));
-            tableLayoutPanel3.Controls.Add(roundedButtonBlocked, 0, 0);
-            tableLayoutPanel3.Controls.Add(roundedButtonAll, 1, 0);
-            tableLayoutPanel3.Controls.Add(roundedSearchField1, 3, 0);
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 280F));
+            tableLayoutPanel3.Controls.Add(roundedButtonBlocked, 1, 0);
+            tableLayoutPanel3.Controls.Add(roundedButtonAll, 0, 0);
+            tableLayoutPanel3.Controls.Add(roundedSearchFieldLogin, 3, 0);
             tableLayoutPanel3.Dock = DockStyle.Fill;
             tableLayoutPanel3.Location = new Point(0, 0);
             tableLayoutPanel3.Margin = new Padding(0);
@@ -337,12 +359,12 @@
             roundedButtonBlocked.FocusBorderSize = 2;
             roundedButtonBlocked.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             roundedButtonBlocked.ForeColor = Color.Black;
-            roundedButtonBlocked.Location = new Point(0, 0);
+            roundedButtonBlocked.Location = new Point(80, 0);
             roundedButtonBlocked.Margin = new Padding(0);
             roundedButtonBlocked.Name = "roundedButtonBlocked";
             roundedButtonBlocked.Size = new Size(80, 40);
             roundedButtonBlocked.TabIndex = 14;
-            roundedButtonBlocked.Text = "Blocked";
+            roundedButtonBlocked.Text = "Baned";
             roundedButtonBlocked.TextColor = Color.Black;
             roundedButtonBlocked.UseVisualStyleBackColor = false;
             roundedButtonBlocked.Click += roundedButtonBlocked_Click;
@@ -362,7 +384,7 @@
             roundedButtonAll.FocusBorderSize = 2;
             roundedButtonAll.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             roundedButtonAll.ForeColor = Color.Black;
-            roundedButtonAll.Location = new Point(80, 0);
+            roundedButtonAll.Location = new Point(0, 0);
             roundedButtonAll.Margin = new Padding(0);
             roundedButtonAll.Name = "roundedButtonAll";
             roundedButtonAll.Size = new Size(80, 40);
@@ -372,28 +394,29 @@
             roundedButtonAll.UseVisualStyleBackColor = false;
             roundedButtonAll.Click += roundedButtonAll_Click;
             // 
-            // roundedSearchField1
+            // roundedSearchFieldLogin
             // 
-            roundedSearchField1.BackColor = SystemColors.Window;
-            roundedSearchField1.BorderColor = Color.FromArgb(224, 224, 224);
-            roundedSearchField1.BorderFocusColor = Color.FromArgb(224, 224, 224);
-            roundedSearchField1.BorderRadius = 7;
-            roundedSearchField1.BorderSize = 1;
-            roundedSearchField1.Dock = DockStyle.Fill;
-            roundedSearchField1.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            roundedSearchField1.ForeColor = Color.FromArgb(64, 64, 64);
-            roundedSearchField1.Location = new Point(165, 0);
-            roundedSearchField1.Margin = new Padding(0);
-            roundedSearchField1.Multiline = false;
-            roundedSearchField1.Name = "roundedSearchField1";
-            roundedSearchField1.Padding = new Padding(10, 7, 10, 7);
-            roundedSearchField1.PasswordChar = false;
-            roundedSearchField1.PlaceholderColor = Color.DarkGray;
-            roundedSearchField1.PlaceholderText = "";
-            roundedSearchField1.Size = new Size(231, 40);
-            roundedSearchField1.TabIndex = 15;
-            roundedSearchField1.Texts = "";
-            roundedSearchField1.UnderlinedStyle = false;
+            roundedSearchFieldLogin.BackColor = SystemColors.Window;
+            roundedSearchFieldLogin.BorderColor = Color.Silver;
+            roundedSearchFieldLogin.BorderFocusColor = Color.Silver;
+            roundedSearchFieldLogin.BorderRadius = 7;
+            roundedSearchFieldLogin.BorderSize = 1;
+            roundedSearchFieldLogin.Dock = DockStyle.Fill;
+            roundedSearchFieldLogin.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            roundedSearchFieldLogin.ForeColor = Color.FromArgb(64, 64, 64);
+            roundedSearchFieldLogin.Location = new Point(165, 0);
+            roundedSearchFieldLogin.Margin = new Padding(0);
+            roundedSearchFieldLogin.Multiline = false;
+            roundedSearchFieldLogin.Name = "roundedSearchFieldLogin";
+            roundedSearchFieldLogin.Padding = new Padding(10, 10, 10, 7);
+            roundedSearchFieldLogin.PasswordChar = false;
+            roundedSearchFieldLogin.PlaceholderColor = Color.DarkGray;
+            roundedSearchFieldLogin.PlaceholderText = "user_name";
+            roundedSearchFieldLogin.Size = new Size(175, 39);
+            roundedSearchFieldLogin.TabIndex = 15;
+            roundedSearchFieldLogin.Texts = "";
+            roundedSearchFieldLogin.UnderlinedStyle = false;
+            roundedSearchFieldLogin._TextChanged += roundedSearchFieldLogin__TextChanged;
             // 
             // UserListPage
             // 
@@ -410,7 +433,7 @@
             tableLayoutPanel5.ResumeLayout(false);
             roundedPanelContent.ResumeLayout(false);
             roundedPanelDGVContent.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridViewTickets).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewUsers).EndInit();
             tableLayoutPanel3.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -425,16 +448,17 @@
         private components.ui.RoundedButton roundedButtonBlock;
         private components.ui.RoundedPanel roundedPanelContent;
         private components.ui.RoundedPanel roundedPanelDGVContent;
-        private DataGridView dataGridViewTickets;
+        private DataGridView dataGridViewUsers;
         private TableLayoutPanel tableLayoutPanel3;
         private components.ui.RoundedButton roundedButtonSearch;
         private components.ui.RoundedButton roundedButtonBlocked;
+        private components.ui.RoundedButton roundedButtonAll;
+        private components.ui.RoundedSearchField roundedSearchFieldLogin;
         private DataGridViewTextBoxColumn Column1;
         private DataGridViewTextBoxColumn Column2;
         private DataGridViewTextBoxColumn Column3;
         private DataGridViewTextBoxColumn Column4;
         private DataGridViewTextBoxColumn Column5;
-        private components.ui.RoundedButton roundedButtonAll;
-        private components.ui.RoundedSearchField roundedSearchField1;
+        private DataGridViewTextBoxColumn Column6;
     }
 }

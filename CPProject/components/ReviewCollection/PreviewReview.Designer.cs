@@ -55,7 +55,7 @@
             labelUserName.Location = new Point(0, 0);
             labelUserName.Margin = new Padding(0);
             labelUserName.Name = "labelUserName";
-            labelUserName.Size = new Size(363, 40);
+            labelUserName.Size = new Size(358, 40);
             labelUserName.TabIndex = 0;
             labelUserName.Text = "User name";
             labelUserName.TextAlign = ContentAlignment.MiddleLeft;
@@ -140,7 +140,7 @@
             tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 12.7020788F));
             tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 5F));
             tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 76F));
-            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 5F));
+            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 10F));
             tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 105F));
             tableLayoutPanel5.Controls.Add(tableLayoutPanel2, 3, 0);
             tableLayoutPanel5.Controls.Add(labelUserName, 0, 0);
@@ -164,7 +164,7 @@
             tableLayoutPanel2.Controls.Add(roundedButtonBanUser, 2, 0);
             tableLayoutPanel2.Controls.Add(roundedButtonDeleteReview, 0, 0);
             tableLayoutPanel2.Dock = DockStyle.Fill;
-            tableLayoutPanel2.Location = new Point(422, 2);
+            tableLayoutPanel2.Location = new Point(417, 2);
             tableLayoutPanel2.Margin = new Padding(2);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 1;
@@ -187,7 +187,7 @@
             roundedButtonBanUser.FocusBorderSize = 2;
             roundedButtonBanUser.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             roundedButtonBanUser.ForeColor = Color.FromArgb(64, 64, 64);
-            roundedButtonBanUser.Image = Properties.Resources.BanIcon;
+            roundedButtonBanUser.Image = Properties.Resources.warn_black;
             roundedButtonBanUser.Location = new Point(36, 0);
             roundedButtonBanUser.Margin = new Padding(0);
             roundedButtonBanUser.Name = "roundedButtonBanUser";
