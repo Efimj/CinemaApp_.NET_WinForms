@@ -29,7 +29,12 @@
         private void InitializeComponent()
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             tableLayoutPanel1 = new TableLayoutPanel();
             tableLayoutPanel4 = new TableLayoutPanel();
             roundedPanel3 = new components.ui.RoundedPanel();
@@ -40,16 +45,16 @@
             roundedPanel1 = new components.ui.RoundedPanel();
             roundedPanel2 = new components.ui.RoundedPanel();
             dataGridView1 = new DataGridView();
-            Column1 = new DataGridViewTextBoxColumn();
-            Column2 = new DataGridViewTextBoxColumn();
-            Column3 = new DataGridViewTextBoxColumn();
-            Column4 = new DataGridViewTextBoxColumn();
-            Column5 = new DataGridViewTextBoxColumn();
             tableLayoutPanel3 = new TableLayoutPanel();
             roundedButtonMySession = new components.ui.RoundedButton();
             roundedButtonFutureSession = new components.ui.RoundedButton();
             roundedButtonCreateSession = new components.ui.RoundedButton();
             roundedButtonSessionArchive = new components.ui.RoundedButton();
+            Column1 = new DataGridViewTextBoxColumn();
+            Column2 = new DataGridViewTextBoxColumn();
+            Column3 = new DataGridViewTextBoxColumn();
+            Column4 = new DataGridViewTextBoxColumn();
+            Column5 = new DataGridViewTextBoxColumn();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel4.SuspendLayout();
             roundedPanel3.SuspendLayout();
@@ -268,14 +273,14 @@
             dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5 });
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = Color.MediumSlateBlue;
-            dataGridViewCellStyle2.SelectionForeColor = Color.White;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = SystemColors.Window;
+            dataGridViewCellStyle7.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle7.ForeColor = Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = Color.MediumSlateBlue;
+            dataGridViewCellStyle7.SelectionForeColor = Color.White;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.False;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle7;
             dataGridView1.Dock = DockStyle.Fill;
             dataGridView1.GridColor = Color.FromArgb(224, 224, 224);
             dataGridView1.Location = new Point(0, 0);
@@ -291,46 +296,6 @@
             dataGridView1.VirtualMode = true;
             dataGridView1.CellClick += dataGridView1_CellClick;
             dataGridView1.CellValueNeeded += dataGridView1_CellValueNeeded;
-            // 
-            // Column1
-            // 
-            Column1.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            Column1.FillWeight = 58.59104F;
-            Column1.HeaderText = "Film title";
-            Column1.Name = "Column1";
-            Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            Column2.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            Column2.FillWeight = 58.59104F;
-            Column2.HeaderText = "Address";
-            Column2.Name = "Column2";
-            Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            Column3.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            Column3.FillWeight = 58.59104F;
-            Column3.HeaderText = "Date";
-            Column3.Name = "Column3";
-            Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            Column4.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            Column4.FillWeight = 40F;
-            Column4.HeaderText = "Tickets";
-            Column4.Name = "Column4";
-            Column4.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            Column5.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            Column5.FillWeight = 58.59104F;
-            Column5.HeaderText = "Price";
-            Column5.Name = "Column5";
-            Column5.ReadOnly = true;
             // 
             // tableLayoutPanel3
             // 
@@ -453,6 +418,53 @@
             roundedButtonSessionArchive.UseVisualStyleBackColor = false;
             roundedButtonSessionArchive.Click += roundedButton2_Click;
             // 
+            // Column1
+            // 
+            Column1.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            Column1.DefaultCellStyle = dataGridViewCellStyle2;
+            Column1.FillWeight = 72.5141F;
+            Column1.HeaderText = "Film title";
+            Column1.Name = "Column1";
+            Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            Column2.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            Column2.DefaultCellStyle = dataGridViewCellStyle3;
+            Column2.FillWeight = 72.5141F;
+            Column2.HeaderText = "Address";
+            Column2.Name = "Column2";
+            Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            Column3.DefaultCellStyle = dataGridViewCellStyle4;
+            Column3.FillWeight = 69.63559F;
+            Column3.HeaderText = "Date";
+            Column3.Name = "Column3";
+            Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            Column4.DefaultCellStyle = dataGridViewCellStyle5;
+            Column4.FillWeight = 30.2502232F;
+            Column4.HeaderText = "Tickets";
+            Column4.Name = "Column4";
+            Column4.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            Column5.DefaultCellStyle = dataGridViewCellStyle6;
+            Column5.FillWeight = 29.4502F;
+            Column5.HeaderText = "Cost";
+            Column5.Name = "Column5";
+            Column5.ReadOnly = true;
+            // 
             // SessionPage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -486,14 +498,14 @@
         private DataGridView dataGridView1;
         private components.ui.RoundedPanel roundedPanel1;
         private components.ui.RoundedPanel roundedPanel2;
+        private TableLayoutPanel tableLayoutPanel5;
+        private components.ui.RoundedButton roundedButtonBuyTicket;
+        private components.ui.RoundedButton roundedButtonEditSession;
+        private components.ui.RoundedButton roundedButtonMySession;
         private DataGridViewTextBoxColumn Column1;
         private DataGridViewTextBoxColumn Column2;
         private DataGridViewTextBoxColumn Column3;
         private DataGridViewTextBoxColumn Column4;
         private DataGridViewTextBoxColumn Column5;
-        private TableLayoutPanel tableLayoutPanel5;
-        private components.ui.RoundedButton roundedButtonBuyTicket;
-        private components.ui.RoundedButton roundedButtonEditSession;
-        private components.ui.RoundedButton roundedButtonMySession;
     }
 }

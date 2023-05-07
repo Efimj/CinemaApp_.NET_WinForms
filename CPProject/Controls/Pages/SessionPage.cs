@@ -79,7 +79,7 @@ namespace CPProject.Controls.Pages
                     count = GetArchiveSessionCount();
                     break;
                 case SessionsDGVMode.My:
-                    count = GetMyTicketsCount();
+                    count = GetMySessionCount();
                     break;
             }
             return count == null ? 0 : (int)count;
@@ -117,16 +117,16 @@ namespace CPProject.Controls.Pages
             }
         }
 
-        private static int? GetMyTicketsCount()
+        private static int? GetMySessionCount()
         {
             try
             {
                 if (AccountHandler.Instance.User == null)
                     return null;
                 return DataBase.TicketCollection
-                                        .Where(item => AccountHandler.Instance.User.Id == item.UserId)
-                                        .Distinct(new TicketSessionComparer())
-                                        .Count();
+                    .Where(item => AccountHandler.Instance.User.Id == item.UserId)
+                    .GroupBy(item => item.SessionId)
+                    .Count();
             }
             catch (Exception ex)
             {
@@ -173,11 +173,11 @@ namespace CPProject.Controls.Pages
             {
                 if (AccountHandler.Instance.User == null)
                     return null;
-                Ticket ticket = DataBase.TicketCollection
-                                        .Where(item => AccountHandler.Instance.User.Id == item.UserId)
-                                        .Distinct(new TicketSessionComparer())
-                                        .OrderByDescending(item => item.PurchaseDate)
-                                        .ElementAt(index);
+                Ticket? ticket = DataBase.TicketCollection
+                    .Where(item => AccountHandler.Instance.User.Id == item.UserId)
+                    .GroupBy(item => item.SessionId).ElementAt(index).First();
+                if (ticket == null)
+                    return null;
                 return DataBase.SessionCollection.Find(item => item.Id == ticket.SessionId);
             }
             catch (Exception ex)
@@ -359,8 +359,23 @@ namespace CPProject.Controls.Pages
 
         private double? GetSessionTicketPrice(int rowIndex)
         {
+
             Session? session = GetSession(rowIndex);
-            return session == null ? null : session.DefaultTicketPrice;
+            if (session == null)
+                return null;
+            double cost = 0;
+            switch (CurrentSessionsDGVMode)
+            {
+                case SessionsDGVMode.My:
+                    if (AccountHandler.Instance.User == null)
+                        return 0;
+                    cost = DataBase.TicketCollection.Where(item => item.UserId == AccountHandler.Instance.User.Id && item.SessionId == session.Id).Sum(item => item.Price);
+                    break;
+                default:
+                    cost = session.DefaultTicketPrice;
+                    break;
+            }
+            return cost;
         }
 
         private int? GetSessionTicketCount(int rowIndex)
