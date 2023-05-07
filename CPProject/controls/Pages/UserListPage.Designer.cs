@@ -184,6 +184,7 @@
             roundedButtonBlock.Text = "Block";
             roundedButtonBlock.TextColor = Color.Black;
             roundedButtonBlock.UseVisualStyleBackColor = false;
+            roundedButtonBlock.Click += roundedButtonBlock_Click;
             // 
             // roundedPanelContent
             // 

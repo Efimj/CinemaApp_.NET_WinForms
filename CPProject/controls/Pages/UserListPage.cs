@@ -1,5 +1,9 @@
 ﻿using CPProject.components.ui;
 using CPProject.DataBaseModel;
+using CPProject.DataBaseModel.types;
+using CPProject.Forms;
+using CPProject.User;
+using CPProject.User.types;
 using System.Diagnostics;
 
 namespace CPProject.controls.Pages
@@ -24,6 +28,7 @@ namespace CPProject.controls.Pages
             set
             {
                 selectedRowIndex = value;
+                OnSelectedRowIndexChanged();
             }
         }
 
@@ -46,6 +51,7 @@ namespace CPProject.controls.Pages
         {
             InitializeComponent();
             Dock = DockStyle.Fill;
+            SelectedRowIndex = null;
             DGVInitialize();
             setButtonActive((RoundedButton)roundedButtonAll);
             CurrentUserListPageMode = UserListPageMode.All;
@@ -64,8 +70,38 @@ namespace CPProject.controls.Pages
 
         private void ClearDGV()
         {
+            SelectedRowIndex = null;
             dataGridViewUsers.Rows.Clear();
             dataGridViewUsers.RowCount = GetRowCount();
+        }
+
+        private void OnSelectedRowIndexChanged()
+        {
+            BlockButtonChange();
+        }
+
+        private void BlockButtonChange()
+        {
+            if (SelectedRowIndex == null)
+            {
+                roundedButtonBlock.Enabled = false;
+                return;
+            }
+            DataBaseModel.entities.User? user = GetUser((int)SelectedRowIndex);
+            if (user == null || AccountHandler.Instance.User == null || AccountHandler.Instance.User.Id == user.Id)
+            {
+                roundedButtonBlock.Enabled = false;
+                return;
+            }
+            if (IsUserBlocked(user))
+            {
+                roundedButtonBlock.Text = "Unblock";
+            }
+            else
+            {
+                roundedButtonBlock.Text = "Block";
+            }
+            roundedButtonBlock.Enabled = true;
         }
 
         private int GetRowCount()
@@ -179,13 +215,17 @@ namespace CPProject.controls.Pages
             return DataBase.ReviewCollection.Count(item => item.UserId == user.Id);
         }
 
+        private bool IsUserBlocked(DataBaseModel.entities.User user)
+        {
+            return DataBase.BlockedUserCollection.Any(item => item.UserId == user.Id);
+        }
+
         private string GetUserStatus(int rowIndex)
         {
             DataBaseModel.entities.User? user = GetUser(rowIndex);
             if (user == null)
                 return "";
-            bool isblockedUser = DataBase.BlockedUserCollection.Any(item => item.UserId == user.Id);
-            return isblockedUser ? "blocked" : "active";
+            return IsUserBlocked(user) ? "blocked" : "active";
         }
 
         private double GetUserMoney(int rowIndex)
@@ -248,6 +288,49 @@ namespace CPProject.controls.Pages
         private void roundedSearchFieldLogin__TextChanged(object sender, EventArgs e)
         {
             SearchUserLogin = roundedSearchFieldLogin.Texts.Trim();
+        }
+
+        private bool BanUser(DataBaseModel.entities.User user)
+        {
+            if (AccountHandler.Instance.User == null || AccountHandler.Instance.User.UserType != UserType.Admin)
+                return false;
+            DialogUserBan dialogUserBan = new DialogUserBan();
+            dialogUserBan.User = user;
+            DialogResult dialogResult = dialogUserBan.ShowDialog();
+            if (dialogResult != DialogResult.Yes)
+                return false;
+            return ((Admin)AccountHandler.Instance.User).blockUser(
+                user.Id,
+                dialogUserBan.BlockDuration,
+                dialogUserBan.BlockReason,
+                dialogUserBan.AppointmentDate
+                );
+        }
+
+        private bool UnblockUser(DataBaseModel.entities.User user)
+        {
+            if (AccountHandler.Instance.User == null || AccountHandler.Instance.User.UserType != UserType.Admin)
+                return false;
+            DialogResult result = MessageBox.Show($"Do you want to unblock {user.Login}?", "Unblock User", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result != DialogResult.Yes)
+                return false;
+            return ((Admin)AccountHandler.Instance.User).unblockUser(user.Id);
+        }
+
+        private void roundedButtonBlock_Click(object sender, EventArgs e)
+        {
+            if (SelectedRowIndex == null)
+                return;
+            DataBaseModel.entities.User? user = GetUser((int)SelectedRowIndex);
+            if (user == null || AccountHandler.Instance.User == null || AccountHandler.Instance.User.Id == user.Id)
+                return;
+            bool result = false;
+            if (IsUserBlocked(user))
+                result = UnblockUser(user);
+            else
+                result = BanUser(user);
+            if (result)
+                ClearDGV();
         }
     }
 }

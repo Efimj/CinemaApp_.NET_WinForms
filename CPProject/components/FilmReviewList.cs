@@ -30,6 +30,7 @@ namespace CPProject.components
             [Description("Oldest first")]
             Oldest
         }
+
         private Film film;
         private static CinemaDataBase? DBInstance = null;
         private Review? userReview;
@@ -184,7 +185,7 @@ namespace CPProject.components
                 }
                 PreviewReview previewReview;
                 if (AccountHandler.Instance.User != null && AccountHandler.Instance.User.UserType == UserType.Admin)
-                    previewReview = new PreviewReview(reviewItem, user, DeleteReview, BanReview);
+                    previewReview = new PreviewReview(reviewItem, user, DeleteReview, BanUser);
                 else
                     previewReview = new PreviewReview(reviewItem, user);
                 previewReview.Padding = new Padding(0, 0, 0, 10);
@@ -241,7 +242,7 @@ namespace CPProject.components
             }
         }
 
-        private void BanReview(DataBaseModel.entities.User user)
+        private void BanUser(DataBaseModel.entities.User user)
         {
             if (AccountHandler.Instance.User == null || AccountHandler.Instance.User.UserType != UserType.Admin)
                 return;
