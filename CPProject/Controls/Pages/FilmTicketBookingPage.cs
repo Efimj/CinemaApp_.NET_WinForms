@@ -44,7 +44,7 @@ namespace CPProject.Controls.Pages
                 return;
             if (AccountHandler.Instance.User.BirthdayDate > DateTime.Now.AddYears(-currentMinimumAge))
             {
-                MessageBox.Show($"You do not meet the age limit.\nCurrent age rrating: {(AgeRating)Enum.GetValues(typeof(AgeRating)).GetValue((int)Film.AgeRating)}", "Ticket Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show($"You do not meet the age limit.\nCurrent age rating: {(AgeRating)Enum.GetValues(typeof(AgeRating)).GetValue((int)Film.AgeRating)}", "Ticket Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 goBack();
             }
         }
