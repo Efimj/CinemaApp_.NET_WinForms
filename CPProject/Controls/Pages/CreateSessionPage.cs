@@ -86,7 +86,7 @@ namespace CPProject.Controls.Pages
                 dateTimePicker.Value = Session.Date;
                 numericUpDownTicketCount.Value = Session.TicketCount;
                 numericUpDownTicketCount.Minimum = DataBase.TicketCollection.Count(item => item.SessionId == Session.Id);
-                numericUpDownTicketPrice.Value = (int)Session.DefaultTicketPrice;
+                numericUpDownTicketPrice.Value = Convert.ToDecimal(Session.DefaultTicketPrice);
                 Film? film = DataBase.FilmCollection.Find(item => item.Id == Session.FilmId);
                 if (film != null)
                 {
@@ -313,7 +313,7 @@ namespace CPProject.Controls.Pages
                     Location,
                     dateTimePicker.Value,
                     Convert.ToInt32(numericUpDownTicketCount.Value),
-                    Convert.ToInt32(numericUpDownTicketPrice.Value)
+                    Convert.ToDouble(numericUpDownTicketPrice.Value)
                     );
             }
             else
