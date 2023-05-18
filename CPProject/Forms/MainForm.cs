@@ -4,6 +4,7 @@ using CPProject.DataBaseModel.types;
 using CPProject.handlers;
 using CPProject.helpers;
 using CPProject.User;
+using MongoDB.Bson;
 using System.Diagnostics;
 
 namespace CPProject
@@ -15,6 +16,12 @@ namespace CPProject
             InitializeComponent();
             panelNavigation.Controls.Add(new NBAuthorization(panelPage));
             initApp();
+
+            for (int i = 0; i < 10; i++)
+            {
+                Debug.WriteLine(ObjectId.GenerateNewId().ToString());
+            }
+
         }
         private void initApp()
         {
