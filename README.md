@@ -1,4 +1,4 @@
 # Cinema Network Desktop Application
 > created in the second year of university.
 
-![Пример](images/example.png)
+![Пример](git_images/main_page.png)
