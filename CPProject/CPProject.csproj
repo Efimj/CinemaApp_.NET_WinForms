@@ -6,11 +6,16 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+    <ApplicationIcon>images\earth2 no background.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="images\star_filled.png" />
     <None Remove="images\star_outfilled.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="images\earth2 no background.ico" />
   </ItemGroup>
 
   <ItemGroup>

@@ -179,10 +179,9 @@ namespace CPProject.Controls
 
         private void insertFilm(Film film)
         {
-            FilmPage filmPage;
             FilmPreviewCard card = new FilmPreviewCard(() =>
             {
-                filmPage = new FilmPage(film, updateFilm); setNewPage(filmPage);
+                FilmPage filmPage = new FilmPage(film, updateFilm); setNewPage(filmPage);
             }, film);
             card.Margin = new Padding(5, 5, 5, 5);
             filmCollection.Add(film);

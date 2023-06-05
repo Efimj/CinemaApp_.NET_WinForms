@@ -359,6 +359,19 @@ namespace CPProject.Controls.Pages
 
         private double? GetSessionTicketPrice(int rowIndex)
         {
+            //if (AccountHandler.Instance.User == null)
+            //    return 0;
+            //switch (AccountHandler.Instance.User.UserType)
+            //{
+            //    case UserType.Admin:
+            //        ((Admin)AccountHandler.Instance.User).deleteSession("");
+            //        break;
+            //    case UserType.Customer:
+            //        ((Customer)AccountHandler.Instance.User).buyTicket("", 1, 2);
+            //        break;
+            //    default:
+            //        break;
+            //}
 
             Session? session = GetSession(rowIndex);
             if (session == null)
